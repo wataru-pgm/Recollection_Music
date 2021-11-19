@@ -1,6 +1,6 @@
 const { environment } = require('@rails/webpacker')
 
-// jQueryとBootstrapのJSを使えるようにする
+// jQueryとBootstapのJSを使えるように
 const webpack = require('webpack')
 environment.plugins.prepend(
   'Provide',
