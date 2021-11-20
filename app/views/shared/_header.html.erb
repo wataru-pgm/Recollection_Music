@@ -9,9 +9,12 @@
       <li class="nav-item">
         <a class="nav-link" href="#">使い方</a>
       </li>
-      <%= link_to "ログイン", login_path %>
-      <%= link_to "ログアウト", logout_path, method: :post %>
-      <%= link_to "新規登録", new_user_path %>
+      <% if logged_in? %>
+        <%= link_to "ログアウト", logout_path, method: :post %>
+      <% else %>
+        <%= link_to "ログイン", login_path %>
+        <%= link_to "新規登録", new_user_path %>
+      <% end %>
     </ul>
   </div>
 </nav>
