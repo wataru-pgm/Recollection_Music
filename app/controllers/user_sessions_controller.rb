@@ -1,12 +1,10 @@
 class UserSessionsController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create]
-
   def new; end
 
   def create
-    @user = login(params[:email, :password])
+    @user = login(params[:email], params[:password])
     if @user
-      redirect_back_or_to root_path
+      redirect_back_or_to root_path, notice: 'ログインしました！'
     else
       render :new
     end
@@ -14,6 +12,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to root_path
+    redirect_to root_path, notice: 'ログアウトしました！'
   end
 end
