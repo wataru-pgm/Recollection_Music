@@ -11,6 +11,13 @@ class BoardsController < ApplicationController
   end
 
   def create
+    binding.pry
+    @board = current_user.boards.new(board_params)
+    if @board.save
+      redirect_to boards_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -20,5 +27,11 @@ class BoardsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def board_params
+    params.require(:board).permit(:title, :body)
   end
 end
