@@ -10,10 +10,11 @@
         <a class="nav-link" href="#">使い方</a>
       </li>
       <% if logged_in? %>
-        <%= link_to "ログアウト", logout_path, method: :post %>
+        <%= link_to "新規投稿", new_board_path %>
+        <%= link_to "ログアウト", logout_path, method: :delete %>
       <% else %>
-        <%= link_to "ログイン", login_path %>
         <%= link_to "新規登録", new_user_path %>
+        <%= link_to "ログイン", login_path %>
       <% end %>
     </ul>
   </div>
