@@ -28,6 +28,12 @@ class BoardsController < ApplicationController
   end
 
   def update
+    @board = Board.find(params[:id])
+    if @board.update(board_params)
+      redirect_to @board
+    else
+      render :edit
+    end
   end
 
   def destroy
