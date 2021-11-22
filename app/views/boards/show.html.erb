@@ -4,8 +4,10 @@
       <h1>投稿詳細ページ</h1>
         <%= @board.title %>
         <%= @board.body %>
-        <%= link_to "編集", edit_board_path %>
-        <%= link_to "削除", board_path, method: :delete %>
+        <% if @board.user == current_user %>
+          <%= link_to "編集", edit_board_path %>
+          <%= link_to "削除", board_path, method: :delete %>
+        <% end %>
     </div>
   </div>
 </div>
