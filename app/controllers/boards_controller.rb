@@ -1,8 +1,7 @@
 class BoardsController < ApplicationController
-  before_action :ensure_board, only: %i[edit update destroy]
+  before_action :ensure_board, only: [:edit, :update, :destroy]
 
-  def top
-  end
+  def top; end
 
   def index
     @boards = Board.all
@@ -25,12 +24,9 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
   end
 
-  def edit
-    @board = Board.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @board = Board.find(params[:id])
     if @board.update(board_params)
       redirect_to @board
     else
@@ -39,7 +35,6 @@ class BoardsController < ApplicationController
   end
 
   def destroy
-    @board = Board.find(params[:id])
     @board.destroy!
     redirect_to boards_path
   end
