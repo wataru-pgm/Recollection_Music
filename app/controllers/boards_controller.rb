@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController
+  before_action :ensure_board, only: %i[edit update destroy]
+
   def top
   end
 
@@ -46,5 +48,9 @@ class BoardsController < ApplicationController
 
   def board_params
     params.require(:board).permit(:title, :body)
+  end
+
+  def ensure_board
+    @board = current_user.boards.find(params[:id])
   end
 end
