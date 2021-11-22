@@ -5,6 +5,7 @@
         <%= @board.title %>
         <%= @board.body %>
         <%= link_to "編集", edit_board_path %>
+        <%= link_to "削除", board_path, method: :delete %>
     </div>
   </div>
 </div>
