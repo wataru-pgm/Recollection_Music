@@ -1,6 +1,7 @@
 class BoardsController < ApplicationController
-  def top
-  end
+  before_action :ensure_board, only: [:edit, :update, :destroy]
+
+  def top; end
 
   def index
     @boards = Board.all
@@ -23,15 +24,28 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
   end
 
+  def edit; end
+
   def update
+    if @board.update(board_params)
+      redirect_to @board
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @board.destroy!
+    redirect_to boards_path
   end
 
   private
 
   def board_params
     params.require(:board).permit(:title, :body)
+  end
+
+  def ensure_board
+    @board = current_user.boards.find(params[:id])
   end
 end
