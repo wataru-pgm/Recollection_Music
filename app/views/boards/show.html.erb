@@ -19,8 +19,8 @@
         <% end %>
 
         <!-- コメント一覧 -->
-        <% @board.comments.each do |c| %>
-          <%= @comment.body %>
+        <% @comments.each do |c| %>
+          <%= c.body %>
         <% end %>
     </div>
   </div>
