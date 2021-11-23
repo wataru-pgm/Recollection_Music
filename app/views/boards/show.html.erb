@@ -2,11 +2,25 @@
   <div class="row">
     <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1>投稿詳細ページ</h1>
+        <!-- 投稿された内容 -->
         <%= @board.title %>
         <%= @board.body %>
         <% if @board.user == current_user %>
           <%= link_to "編集", edit_board_path %>
           <%= link_to "削除", board_path, method: :delete %>
+        <% end %>
+
+        <!-- コメント記入欄 -->
+        <% if current_user %>
+          <%= form_with model: @comment, url: [@board, @comment] do |f| %>
+            <%= f.text_area :body, placeholder: "コメントする", class: 'form-control mb-3' %>
+            <%= f.submit "投稿する", class: 'btn btn-primary' %>
+          <% end %>
+        <% end %>
+
+        <!-- コメント一覧 -->
+        <% @board.comments.each do |c| %>
+          <%= @comment.body %>
         <% end %>
     </div>
   </div>
