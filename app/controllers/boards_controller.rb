@@ -23,7 +23,6 @@ class BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])
     @comment = Comment.new            # コメントのインスタンス作成
-    @comments = @board.comments       # コメント一覧表示用
   end
 
   def edit; end

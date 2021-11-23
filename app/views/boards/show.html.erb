@@ -2,26 +2,38 @@
   <div class="row">
     <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1>投稿詳細ページ</h1>
-        <!-- 投稿された内容 -->
-        <%= @board.title %>
-        <%= @board.body %>
-        <% if @board.user == current_user %>
-          <%= link_to "編集", edit_board_path %>
-          <%= link_to "削除", board_path, method: :delete %>
-        <% end %>
+      <!-- 投稿された内容 -->
+      <%= @board.title %>
+      <%= @board.body %>
+      <% if @board.user == current_user %>
+        <%= link_to "編集", edit_board_path %>
+        <%= link_to "削除", board_path, method: :delete %>
+      <% end %>
 
-        <!-- コメント記入欄 -->
-        <% if current_user %>
-          <%= form_with model: @comment, url: [@board, @comment] do |f| %>
-            <%= f.text_area :body, placeholder: "コメントする", class: 'form-control mb-3' %>
-            <%= f.submit "投稿する", class: 'btn btn-primary' %>
+      <!-- コメント記入欄 -->
+      <% if current_user %>
+        <%= form_with model: @comment, url: [@board, @comment] do |f| %>
+          <%= f.text_area :body, placeholder: "コメントする", class: 'form-control mb-3' %>
+          <%= f.submit "投稿する", class: 'btn btn-primary' %>
+        <% end %>
+      <% end %>
+
+      <!-- コメント一覧 -->
+      <p>コメント件数：<%= @board.comments.count %>件</p>
+      <% if @board.comments.present? %>
+        <% @board.comments.each do |comment| %>
+          <%= comment.user.name %>
+          <%= comment.body %>
+          <%= comment.created_at.strftime('%Y/%m/%d') %>
+          <% if comment.user = current_user %>
+            <div class="comment-delete">
+              <%= link_to "削除", board_comment_path(comment.board, comment), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+            </div>
           <% end %>
         <% end %>
-
-        <!-- コメント一覧 -->
-        <% @comments.each do |c| %>
-          <%= c.body %>
-        <% end %>
+      <% else %>
+        <p>コメントはまだありません</p>
+      <% end %>
     </div>
   </div>
 </div>
