@@ -11,29 +11,13 @@
       <% end %>
 
       <!-- コメント記入欄 -->
-      <% if current_user %>
-        <%= form_with model: @comment, url: [@board, @comment] do |f| %>
-          <%= f.text_area :body, placeholder: "コメントする", class: 'form-control mb-3' %>
-          <%= f.submit "投稿する", class: 'btn btn-primary' %>
-        <% end %>
-      <% end %>
-
+      <div class="new-comment">
+        <%= render "comments/form", board: @board, comment: @comment %>
+      </div>
       <!-- コメント一覧 -->
-      <p>コメント件数：<%= @board.comments.count %>件</p>
-      <% if @board.comments.present? %>
-        <% @board.comments.each do |comment| %>
-          <%= comment.user.name %>
-          <%= comment.body %>
-          <%= comment.created_at.strftime('%Y/%m/%d') %>
-          <% if comment.user = current_user %>
-            <div class="comment-delete">
-              <%= link_to "削除", board_comment_path(comment.board, comment), method: :delete, data: {confirm: "本当に削除しますか？"} %>
-            </div>
-          <% end %>
-        <% end %>
-      <% else %>
-        <p>コメントはまだありません</p>
-      <% end %>
+      <div class="comments-area">
+        <%= render "comments/comments", board: @board %>
+      </div>
     </div>
   </div>
 </div>

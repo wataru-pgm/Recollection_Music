@@ -1,0 +1,7 @@
+<!-- コメント記入欄 -->
+<% if current_user %>
+  <%= form_with(model: [board, comment], local: true) do |f| %>
+    <%= f.text_area :body, placeholder: "コメントする", class: 'form-control mb-3' %>
+    <%= f.submit "投稿する", class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
