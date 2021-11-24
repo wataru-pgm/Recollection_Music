@@ -2,12 +2,13 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     @comment.save
-    redirect_to board_path(comment.board)
+    redirect_to board_path(@comment.board)
   end
 
   def destroy
     @comment = current_user.comments.find(params[:id])
     @comment.destroy!
+    redirect_to board_path(@comment.board)
   end
 
   private

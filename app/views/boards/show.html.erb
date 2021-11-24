@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    < class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+    <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1>投稿詳細ページ</h1>
       <!-- 投稿された内容 -->
       <%= @board.title %>
@@ -11,10 +11,10 @@
       <% end %>
 
       <!-- コメント記入欄 -->
-      <%= render partial: "comments/form", board: @board, comment: @comment %>
+      <%= render "comments/form", board: @board, comment: @comment %>
       <!-- コメント一覧 -->
       <div class="comments-area">
-        <%= render partial: "comments/comments", comments: @comments %>
+        <%= render "comments/comments", board: @board, comments: @comments %>
       </div>
     </div>
   </div>

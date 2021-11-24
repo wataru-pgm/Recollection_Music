@@ -1,0 +1,3 @@
+<!-- id=js-comment-deleteにこのjsファイルを読み込む -->
+$("#js-comment-delete").replaceWith("<%= j(render 'comments/board_comments', board: @board, comment: @comment) %>");
+<!-- 値を送信したら空にする（削除） -->
