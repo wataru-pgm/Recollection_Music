@@ -2,12 +2,20 @@
   <div class="row">
     <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1>投稿詳細ページ</h1>
-        <%= @board.title %>
-        <%= @board.body %>
-        <% if @board.user == current_user %>
-          <%= link_to "編集", edit_board_path %>
-          <%= link_to "削除", board_path, method: :delete %>
-        <% end %>
+      <!-- 投稿された内容 -->
+      <%= @board.title %>
+      <%= @board.body %>
+      <% if @board.user == current_user %>
+        <%= link_to "編集", edit_board_path %>
+        <%= link_to "削除", board_path, method: :delete %>
+      <% end %>
+
+      <!-- コメント記入欄 -->
+      <%= render "comments/form", board: @board, comment: @comment %>
+      <!-- コメント一覧 -->
+      <div class="comments-area">
+        <%= render "comments/comments", board: @board, comments: @comments %>
+      </div>
     </div>
   </div>
 </div>
