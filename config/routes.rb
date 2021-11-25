@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
   root 'boards#top'
 
   get '/login', to: 'user_sessions#new'
@@ -8,6 +10,6 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :boards do
     resources :comments, only: [:create, :destroy], shallow: true
-    resources :likes, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
   end
 end
