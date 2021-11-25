@@ -10,8 +10,15 @@
         <%= link_to "削除", board_path, method: :delete %>
       <% end %>
 
+      <!-- いいね！ボタン -->
+      <div class="likes" id="like_<%= @board.id %>">
+        <%= render 'likes/like', board: @board %>
+      </div>
+
       <!-- コメント記入欄 -->
-      <%= render "comments/form", board: @board, comment: @comment %>
+      <div class="comment-form-area">
+        <%= render "comments/form", board: @board, comment: @comment %>
+      </div>
       <!-- コメント一覧 -->
       <div class="comments-area">
         <%= render "comments/comments", board: @board, comments: @comments %>
