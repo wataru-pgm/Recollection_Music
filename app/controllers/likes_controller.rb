@@ -1,7 +1,8 @@
 class LikesController < ApplicationController
+  before_action :set_board
   def create
-    @like = Like.new(user_id: currnet_user.id, board_id: @board.id)
-    @likes.save
+    @like = Like.new(user_id: current_user.id, board_id: @board.id)
+    @like.save
   end
 
   def destroy
