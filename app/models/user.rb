@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_many :boards, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_boards, through: :likes, source: :board
 
   validates :name, presence: true, length: { minimum: 2, maximum: 15 }
   validates :email, presence: true, uniqueness: true
