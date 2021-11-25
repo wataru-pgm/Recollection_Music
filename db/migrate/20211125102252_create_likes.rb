@@ -5,6 +5,7 @@ class CreateLikes < ActiveRecord::Migration[6.1]
       t.references :board, null: false, foreign_key: true
 
       t.timestamps
+      t.index [:user_id, :board_id], unique: true
     end
   end
 end
