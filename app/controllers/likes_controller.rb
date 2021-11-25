@@ -5,7 +5,10 @@ class LikesController < ApplicationController
     @like.save
   end
 
-  def destroy; end
+  def destroy
+    @like = Like.find_by(user_id: current_user.id, board_id: @board.id)
+    @like.destroy
+  end
 
   private
 
