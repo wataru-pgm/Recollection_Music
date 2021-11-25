@@ -5,8 +5,7 @@ class LikesController < ApplicationController
     @like.save
   end
 
-  def destroy
-  end
+  def destroy; end
 
   private
 
