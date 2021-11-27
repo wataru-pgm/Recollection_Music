@@ -3,7 +3,7 @@
     <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1>投稿詳細ページ</h1>
       <!-- 投稿された内容 -->
-      <%= link_to "ユーザ詳細ページ", user_path %>
+      <%= link_to @board.user.name, user_path(@board.user) %>
       <%= @board.title %>
       <%= @board.body %>
       <% if @board.user == current_user %>
