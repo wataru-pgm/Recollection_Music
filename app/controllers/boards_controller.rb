@@ -43,10 +43,10 @@ class BoardsController < ApplicationController
     redirect_to boards_path
   end
 
-  def search
+  def music_search
     @musics = Music.all
     if params[:search].present?
-    @searchartists = RSpotify::Artist.search(params[:search])
+      @searchartists = RSpotify::Artist.search(params[:search])
     end
   end
 

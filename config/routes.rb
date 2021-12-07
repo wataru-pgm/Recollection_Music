@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :boards do
+    collection {get "music_search"}
     resources :comments, only: [:create, :destroy], shallow: true
     resource :likes, only: [:create, :destroy]
   end
