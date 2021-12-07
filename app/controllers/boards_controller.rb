@@ -1,5 +1,7 @@
 class BoardsController < ApplicationController
   before_action :ensure_board, only: [:edit, :update, :destroy]
+  require 'rspotify'
+  RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_SECRET_ID'])
 
   def top; end
 
@@ -39,6 +41,13 @@ class BoardsController < ApplicationController
   def destroy
     @board.destroy!
     redirect_to boards_path
+  end
+
+  def search
+    @musics = Music.all
+    if params[:search].present?
+    @searchartists = RSpotify::Artist.search(params[:search])
+    end
   end
 
   private
