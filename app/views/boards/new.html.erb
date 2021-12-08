@@ -6,6 +6,13 @@
         <%= form.text_field :search %>
         <%= form.submit '曲名検索', name: nil %>
       <% end %>
+      
+      <h1>検索結果</h1>
+      <% if @tracks.present? %>
+        <%# <% @track.each do |track|%> %>
+          <%= @tracks.name %>
+        <%# <% end %> %>
+      <% end %>
 
       <%= form_with model: @board, local: true do |f| %>
         <div class="form-group">
