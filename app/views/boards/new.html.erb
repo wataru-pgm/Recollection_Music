@@ -9,9 +9,8 @@
       
       <h1>検索結果</h1>
       <% if @tracks.present? %>
-        <%# <% @track.each do |track|%> %>
-          <%= @tracks.name %>
-        <%# <% end %> %>
+          <%= @tracks.map(&:name) %>
+          <iframe class="iframe-song" src="<%= @track.preview_url %>">
       <% end %>
 
       <%= form_with model: @board, local: true do |f| %>
