@@ -1,5 +1,9 @@
 class BoardsController < ApplicationController
   before_action :ensure_board, only: [:edit, :update, :destroy]
+  require 'rspotify'
+  RSpotify.authenticate("1569c25d55f2414988dc28a87070eaad", "57f597603979430a8c82434ac45247be")
+  # (Rails.application.credentials.dig(:spotify, :key),
+  #  Rails.application.credentials.dig(:spotify, :secret_key))
 
   def top; end
 
@@ -9,6 +13,9 @@ class BoardsController < ApplicationController
 
   def new
     @board = Board.new
+    if params[:search].present?
+      @tracks = RSpotify::Track.search(params[:search]).first(5)
+    end
   end
 
   def create
