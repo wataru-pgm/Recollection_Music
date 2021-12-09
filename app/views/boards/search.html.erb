@@ -10,22 +10,25 @@
       <h3>結果</h3>
       <% if @tracks.present? %>
         <% @tracks.each do |track| %>
-          <%# # <%= @tracks.map(&:name) %>
+          <%# <%= @tracks.map(&:name) %>
           <div class="track_name">
             <%= track.name %>
           </div>
+
+          <% @track_imgs.each do |track_img| %>
+            <% if track_img.images.any? %>
+              <% image = track_img.images[1] %>
+              <%= image_tag(image["url"]) %>
+            <% else %>
+              <%= image_tag("default.jpg")%>
+            <% end %>
+          <% end %>
+
           <div class = "track_player">
             <audio controls src="<%= track.preview_url %>"></audio>
           </div>
-        <% end %>
 
-        <% @track_imgs.each do |track_img| %>
-          <% if track_img.images.any? %>
-            <% image = track_img.images[1] %>
-            <%= image_tag(image["url"]) %>
-          <% else %>
-            <%= image_tag("default.jpg")%>
-          <% end %>
+          <%= link_to "追加", new_board_path(song_title: track.name, song_image: track.iamge)  %>
         <% end %>
       <% end %>
     </div>
