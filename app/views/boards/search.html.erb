@@ -9,8 +9,18 @@
 
       <h3>検索結果</h3>
       <% if @tracks.present? %>
-        <%= @tracks.map(&:name) %>
-        <audio controls src="<%= @tracks.first.preview_url %>"></audio>
+        <% @tracks.each do |track| %>
+          <%# <%= @tracks.map(&:name) %>
+          <div class="track_name">
+            <%= track.name %>
+          </div>
+          <div class = "track_player">
+            <audio controls src="<%= track.preview_url %>"></audio>
+          </div>
+        <% end %>
+        <% @track_imgs.each do |track_img| %>
+          <%= track_img.images %>
+        <% end %>
       <% end %>
     </div>
   </div>
