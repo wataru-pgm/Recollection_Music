@@ -15,7 +15,6 @@ class BoardsController < ApplicationController
     @board = Board.new
     if params[:search].present?
       @tracks = RSpotify::Track.search(params[:search]).first(5)
-      @track = @tracks.find { |track| track.artists[0].name == (params[:search]) }
     end
   end
 
