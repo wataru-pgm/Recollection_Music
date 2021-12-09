@@ -11,11 +11,14 @@ class BoardsController < ApplicationController
     @boards = Board.all
   end
 
+  def search
+    if params[:search].present?
+      @tracks = RSpotify::Track.search(params[:search]).first(3)
+    end
+  end
+
   def new
     @board = Board.new
-    if params[:search].present?
-      @tracks = RSpotify::Track.search(params[:search]).first(5)
-    end
   end
 
   def create
