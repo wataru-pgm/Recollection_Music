@@ -7,10 +7,10 @@
         <%= form.submit '曲名検索', name: nil %>
       <% end %>
 
-      <h3>検索結果</h3>
+      <h3>結果</h3>
       <% if @tracks.present? %>
         <% @tracks.each do |track| %>
-          <%# <%= @tracks.map(&:name) %>
+          <%# # <%= @tracks.map(&:name) %>
           <div class="track_name">
             <%= track.name %>
           </div>
@@ -18,8 +18,14 @@
             <audio controls src="<%= track.preview_url %>"></audio>
           </div>
         <% end %>
+
         <% @track_imgs.each do |track_img| %>
-          <%= track_img.images %>
+          <% if track_img.images.any? %>
+            <% image = track_img.images[1] %>
+            <%= image_tag(image["url"]) %>
+          <% else %>
+            <%= image_tag("default.jpg")%>
+          <% end %>
         <% end %>
       <% end %>
     </div>
