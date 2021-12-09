@@ -2,17 +2,6 @@
   <div class="row">
     <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1>新規投稿フォーム</h1>
-      <%= form_with url: new_board_path, method: :get, local: true do |form| %>
-        <%= form.text_field :search %>
-        <%= form.submit '曲名検索', name: nil %>
-      <% end %>
-      
-      <h1>検索結果</h1>
-      <% if @tracks.present? %>
-        <%= @tracks.map(&:name) %>
-        <audio controls src="<%= @tracks.first.preview_url %>"></audio>
-      <% end %>
-
       <%= form_with model: @board, local: true do |f| %>
         <div class="form-group">
           <%= f.label :title %>
