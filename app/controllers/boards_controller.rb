@@ -12,8 +12,10 @@ class BoardsController < ApplicationController
   end
 
   def search
-    @track_imgs = RSpotify::Album.search(params[:search]).first(1)
-    @tracks = RSpotify::Track.search(params[:search]).first(3)
+    if params[:search].present?
+      @track_imgs = RSpotify::Album.search(params[:search]).first(1)
+      @tracks = RSpotify::Track.search(params[:search]).first(3)
+    end
   end
 
   def new
