@@ -10,10 +10,15 @@
       <h3>結果</h3>
       <% if @tracks.present? %>
         <% @tracks.each do |track| %>
-          <%# <%= @tracks.map(&:name) %>
-          <div class="track_name">
+          <div class="track-name">
             <%= track.name %>
           </div>
+
+          <% @artists.each do |artist| %>
+            <div class="artist-name">
+              <%= artist.name %>
+            </div>
+          <% end %>
 
           <% @track_imgs.each do |track_img| %>
             <% if track_img.images.any? %>
