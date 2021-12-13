@@ -12,9 +12,7 @@ class BoardsController < ApplicationController
   end
 
   def search
-    if params[:search].present?
-      @tracks = RSpotify::Track.search(params[:search]).first(3)
-    end
+    @tracks = RSpotify::Track.search(params[:search]).first(3) if params[:search].present?
   end
 
   def new
