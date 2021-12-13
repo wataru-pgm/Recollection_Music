@@ -11,11 +11,13 @@
       <% if @tracks.present? %>
         <% @tracks.each do |track| %>
           <div class="track-name">
+            <i class="fas fa-music"></i>
             <%= track.name %>
           </div>
 
           <% @artists.each do |artist| %>
             <div class="artist-name">
+              <i class="fas fa-user-alt"></i>
               <%= artist.name %>
             </div>
           <% end %>
