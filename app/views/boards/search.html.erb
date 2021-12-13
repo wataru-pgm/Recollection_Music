@@ -10,25 +10,27 @@
       <h3>結果</h3>
       <% if @tracks.present? %>
         <% @tracks.each do |track| %>
-          <%# <%= @tracks.map(&:name) %>
-          <div class="track_name">
+          <div class="track-name">
+            <i class="fas fa-music"></i>
             <%= track.name %>
           </div>
 
-          <% @track_imgs.each do |track_img| %>
-            <% if track_img.images.any? %>
-              <% image = track_img.images[1] %>
-              <%= image_tag(image["url"]) %>
-            <% else %>
-              <%= image_tag("default.jpg")%>
-            <% end %>
-          <% end %>
+          <div class="artist-name">
+            <i class="fas fa-user-alt"></i>
+            <%= track.artists.map(&:name).join %>
+          </div>
+
+          <div class="track-image">
+            <% track_image = track.album.images[1] %>
+            <%= image_tag(track_image["url"])%>
+          </div>
 
           <div class = "track_player">
             <audio controls src="<%= track.preview_url %>"></audio>
           </div>
 
           <%= link_to "追加", new_board_path %>
+          
         <% end %>
       <% end %>
     </div>
