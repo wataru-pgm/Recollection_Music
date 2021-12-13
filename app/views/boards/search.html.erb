@@ -15,27 +15,22 @@
             <%= track.name %>
           </div>
 
-          <% @artists.each do |artist| %>
-            <div class="artist-name">
-              <i class="fas fa-user-alt"></i>
-              <%= artist.name %>
-            </div>
-          <% end %>
+          <div class="artist-name">
+            <i class="fas fa-user-alt"></i>
+            <%= track.artists.map(&:name).join %>
+          </div>
 
-          <% @track_imgs.each do |track_img| %>
-            <% if track_img.images.any? %>
-              <% image = track_img.images[1] %>
-              <%= image_tag(image["url"]) %>
-            <% else %>
-              <%= image_tag("default.jpg")%>
-            <% end %>
-          <% end %>
+          <div class="track-image">
+            <% track_image = track.album.images[1] %>
+            <%= image_tag(track_image["url"])%>
+          </div>
 
           <div class = "track_player">
             <audio controls src="<%= track.preview_url %>"></audio>
           </div>
 
           <%= link_to "追加", new_board_path %>
+          
         <% end %>
       <% end %>
     </div>
