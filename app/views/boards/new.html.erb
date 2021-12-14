@@ -3,6 +3,10 @@
     <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1>新規投稿フォーム</h1>
 
+      <%= @board.song_title %>
+      <%= @board.artist %>
+      <%= image_tag(@board.song_image) %>
+
       <%= form_with model: @board, local: true do |f| %>
         <div class="form-group">
           <%= f.label :title %>

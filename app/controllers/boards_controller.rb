@@ -17,10 +17,7 @@ class BoardsController < ApplicationController
   end
 
   def new
-    @board = current_user.boards.new
-    params[:song_title]
-    params[:song_image]
-    params[:artist]
+    @board = current_user.boards.new(track_params)
   end
 
   def create
@@ -57,6 +54,10 @@ class BoardsController < ApplicationController
 
   def board_params
     params.require(:board).permit(:title, :body)
+  end
+
+  def track_params
+    params.permit(:song_title, :artist, :song_image)
   end
 
   def ensure_board

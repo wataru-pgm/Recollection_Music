@@ -22,14 +22,14 @@
 
           <div class="track-image">
             <% track_image = track.album.images[1] %>
-            <%= image_tag(track_image["url"])%>
+            <%= image_tag(track_image["url"]) %>
           </div>
 
           <div class = "track_player">
             <audio controls src="<%= track.preview_url %>"></audio>
           </div>
 
-          <%= link_to "追加", new_board_path(song_title: track.name, artist: track.artists, song_image: track_image) %>
+          <%= link_to "追加", new_board_path(song_title: track.name, artist: track.artists.map(&:name).join, song_image: track_image["url"]) %>
 
         <% end %>
       <% end %>
