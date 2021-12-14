@@ -2,10 +2,18 @@
   <div class="row">
     <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1>新規投稿フォーム</h1>
-
-      <%= @tracks %>
+      <div class="track">
+        <%= @board.song_title %>
+        <%= @board.artist %>
+        <%= image_tag(@board.song_image) %>
+      </div>
 
       <%= form_with model: @board, local: true do |f| %>
+        <div class="form-group">
+          <%= f.hidden_field :song_title %>
+          <%= f.hidden_field :artist %>
+          <%= f.hidden_field :song_image %>
+        </div>
         <div class="form-group">
           <%= f.label :title %>
           <%= f.text_field :title, class: "form-control" %>
