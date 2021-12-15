@@ -2,7 +2,8 @@ class BoardsController < ApplicationController
   skip_before_action :require_login, only: [:top, :index]
   before_action :ensure_board, only: [:edit, :update, :destroy]
   require 'rspotify'
-  RSpotify.authenticate(Rails.application.credentials.spotify[:client_id], Rails.application.credentials.spotify[:client_secret])
+  RSpotify.authenticate(Rails.application.credentials.spotify[:client_id],
+                        Rails.application.credentials.spotify[:client_secret])
 
   def top; end
 
