@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20_211_126_142_723) do
     t.string "salt"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "image"
     t.string "profile_image"
     t.index ["email"], name: "index_users_on_email", unique: true
   end

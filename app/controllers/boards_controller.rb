@@ -2,9 +2,8 @@ class BoardsController < ApplicationController
   skip_before_action :require_login, only: [:top, :index]
   before_action :ensure_board, only: [:edit, :update, :destroy]
   require 'rspotify'
-  RSpotify.authenticate("1569c25d55f2414988dc28a87070eaad", "57f597603979430a8c82434ac45247be")
-  # (Rails.application.credentials.dig(:spotify, :key),
-  #  Rails.application.credentials.dig(:spotify, :secret_key))
+  RSpotify.authenticate(Rails.application.credentials.spotify[:client_id],
+                        Rails.application.credentials.spotify[:client_secret])
 
   def top; end
 
@@ -53,11 +52,11 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:title, :body, :song_title, :artist, :song_image)
+    params.require(:board).permit(:title, :body, :song_title, :artist, :song_image, :song_player)
   end
 
   def track_params
-    params.permit(:song_title, :artist, :song_image)
+    params.permit(:song_title, :artist, :song_image, :song_player)
   end
 
   def ensure_board

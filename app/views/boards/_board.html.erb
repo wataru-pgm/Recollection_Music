@@ -2,7 +2,17 @@
   <article class="media">
     <div class="media-content">
       <div class="content">
-        <%= link_to board.title, "/boards/#{board.id}" %>
+          <div class="index-song-image">
+            <%= image_tag(board.song_image) %>
+          </div>
+          <div class="index-song-name">
+            <%= board.song_title %>
+          </div>
+          <div class="index-song-name">
+            <%= board.artist %>
+          </div>
+          <%= link_to board.title, "/boards/#{board.id}" %>
+        </div>
       </div>
     </div>
   </article>

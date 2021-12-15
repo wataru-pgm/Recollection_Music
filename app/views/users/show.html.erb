@@ -3,6 +3,15 @@
     <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1 class="font-weight-normal mt-5 mb-5"><%= @user.name %>さんの投稿一覧ページ</h1>
       <% @boards.each do |board| %>
+        <div class="users-show-song-image">
+          <%= image_tag(board.song_image) %>
+        </div>
+        <div class="users-show-song-title">
+          <%= board.song_title %>
+        </div>
+        <div class="users-show-song-artist">
+          <%= board.artist %>
+        </div>
         <%= link_to board.title, board_path(board) %>
       <% end %>
     </div>
