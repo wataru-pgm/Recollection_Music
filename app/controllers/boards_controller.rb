@@ -20,7 +20,6 @@ class BoardsController < ApplicationController
 
   def create
     @board = current_user.boards.new(board_params)
-    binding.pry
     if @board.save
       redirect_to boards_path
     else
