@@ -2,6 +2,14 @@
   <div class="row">
     <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1 class="font-weight-normal mt-5 mb-5"><%= @user.name %>さんの投稿一覧ページ</h1>
+      <% if logged_in? && current_user != user %>
+        <% if current_user.following?(user) %>
+          <%= button_to 'フォロー解除', relationship_path(current_user.relationships.find_by(follower: user)), method: :delete %>
+        <% else %>
+          <%= button_to 'フォローする', relationships_path(follower: user) %>
+        <% end %>
+      <% end %>
+
       <% @boards.each do |board| %>
         <div class="users-show-song-image">
           <%= image_tag(board.song_image) %>
