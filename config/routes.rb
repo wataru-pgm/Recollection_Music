@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'followers/index'
   get 'likes/create'
   get 'likes/destroy'
   root 'boards#top'
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   post '/login', to: 'user_sessions#create'
   delete '/logout', to: 'user_sessions#destroy'
 
-  resources :users
+  resources :users, only: [:new, :create, :show]
   resources :boards do
     collection { get "search" }
     resources :comments, only: [:create, :destroy], shallow: true

@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h1>フォロワー一覧</h1>
+      
+      <div class="col-12">
+        <div class="row">
+          <% if @boards.present? %>
+            <%= render @boards %>
+          <% else %>
+            <h2><%= 'フォロワーがいません' %></h2>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
