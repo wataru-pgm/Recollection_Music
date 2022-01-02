@@ -19,6 +19,14 @@ class UsersController < ApplicationController
     @boards = @user.boards
   end
 
+  def following
+    @followings = @user.followings
+  end
+
+  def follower
+    @follower = @user.followers
+  end
+
   private
 
   def user_params

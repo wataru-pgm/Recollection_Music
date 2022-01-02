@@ -2,6 +2,24 @@
   <div class="row">
     <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1 class="font-weight-normal mt-5 mb-5"><%= @user.name %>さんの投稿一覧ページ</h1>
+      <% if logged_in? && current_user != @user %>
+        <div id="follow-button-<%= @user.id %>">
+          <% if current_user.following?(@user) %>
+            <%= render 'relationships/unfollow_button', user: @user %>
+          <% else %>
+            <%= render 'relationships/follow_button', user: @user %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="following">
+        <%= link_to "#{@user.followings.count}", user_following_path(@user)  %>フォロー
+      </div>
+
+      <div class="follower">
+        <%= link_to "#{@user.followers.count}" %>フォロワー
+      </div>
+
       <% @boards.each do |board| %>
         <div class="users-show-song-image">
           <%= image_tag(board.song_image) %>
