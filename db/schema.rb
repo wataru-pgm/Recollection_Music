@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_211_220_130_902) do
+ActiveRecord::Schema.define(version: 2022_01_02_135055) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authentications", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+  end
 
   create_table "boards", force: :cascade do |t|
     t.string "title", null: false
@@ -43,7 +53,7 @@ ActiveRecord::Schema.define(version: 20_211_220_130_902) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["board_id"], name: "index_likes_on_board_id"
-    t.index %w[user_id board_id], name: "index_likes_on_user_id_and_board_id", unique: true
+    t.index ["user_id", "board_id"], name: "index_likes_on_user_id_and_board_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -53,7 +63,7 @@ ActiveRecord::Schema.define(version: 20_211_220_130_902) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
-    t.index %w[user_id follower_id], name: "index_relationships_on_user_id_and_follower_id", unique: true
+    t.index ["user_id", "follower_id"], name: "index_relationships_on_user_id_and_follower_id", unique: true
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
