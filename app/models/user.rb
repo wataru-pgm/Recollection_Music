@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  # twitterログイン
+  # twitter認証
   has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications
 
