@@ -15,6 +15,9 @@
           <%= f.submit "ログイン", class: "btn btn-primary" %>
         </div>
       <% end %>
+      <div class="twitter-login text-center">
+        <%= link_to 'Twitterでログイン', auth_at_provider_path(provider: :twitter) %>
+      </div>
       <div class='text-center'>
         <%= link_to '新規登録ページへ', new_user_path %>
       </div>
