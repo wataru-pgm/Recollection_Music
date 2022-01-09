@@ -4,8 +4,10 @@
       <h1>フォロワー一覧</h1>
       <div class="col-12">
         <div class="row">
-          <% if @boards.present? %>
-            <%= render @boards %>
+          <% if @users.present? %>
+            <% @users.each do |user| %>
+              <%= user.name %>
+            <% end %>
           <% else %>
             <h2><%= 'フォロワーがいません' %></h2>
           <% end %>
