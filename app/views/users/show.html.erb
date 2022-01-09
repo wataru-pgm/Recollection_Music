@@ -13,11 +13,11 @@
       <% end %>
 
       <div class="following">
-        <%= link_to "#{@user.followings.count}", user_following_path(@user)  %>フォロー
+        <%= link_to "#{@user.followings.count}フォロー", following_user_path(@user)  %>
       </div>
 
       <div class="follower">
-        <%= link_to "#{@user.followers.count}" %>フォロワー
+        <%= link_to "#{@user.followers.count}フォロワー", follower_user_path(@user) %>
       </div>
 
       <% @boards.each do |board| %>

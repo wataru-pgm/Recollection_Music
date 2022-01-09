@@ -6,9 +6,9 @@
       
       <div class="col-12">
         <div class="row">
-          <% if @following.empty? %>
-            <% @following.each do |following| %>
-              <%= @user.name %>
+          <% if @users.present? %>
+            <% @users.each do |user| %>
+              <%= user.name %>
             <% end %>
           <% else %>
             <h2><%= 'フォローしている人がいません' %></h2>
