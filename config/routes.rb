@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   root 'boards#top'
 
   resources :users, only: [:new, :create, :show] do
-    get 'following', to: 'users#following'
-    get 'follower', to: 'users#follower'
+    member do
+      get :following, :followers
+    end
   end
 
   resources :boards do
