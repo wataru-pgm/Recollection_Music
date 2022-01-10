@@ -4,4 +4,4 @@
 <%= current_user.email %>
 
 <%= link_to "編集", edit_profiles_path %>
-<%= link_to "退会", user_path(current_user) %>
+<%= link_to "退会", user_path(current_user), method: :delete %>

@@ -20,6 +20,12 @@ class UsersController < ApplicationController
     @boards = @user.boards
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_path
+  end
+
   def following
     @user = User.find_by(id: params[:id])
     @users = @user.followings
