@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :profiles, only: [:show, :edit, :update]
+
   resources :boards do
     collection { get "search" }
     resources :comments, only: [:create, :destroy], shallow: true
