@@ -12,11 +12,13 @@ Rails.application.routes.draw do
   get 'likes/destroy'
   root 'boards#top'
 
-  resources :users, only: [:new, :create, :show] do
+  resources :users, only: [:new, :create, :show, :destroy] do
     member do
       get :following, :follower
     end
   end
+
+  resource :profiles, only: [:show, :edit, :update]
 
   resources :boards do
     collection { get "search" }

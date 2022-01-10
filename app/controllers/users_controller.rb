@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
-      redirect_to boards_path
+      redirect_to boards_path, notice: "ユーザ登録しました"
     else
       render :new
     end
@@ -18,6 +18,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @boards = @user.boards
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_path, notice: "ユーザ「#{@user.name}」を削除しました。"
   end
 
   def following

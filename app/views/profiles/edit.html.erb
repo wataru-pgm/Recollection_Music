@@ -1,0 +1,12 @@
+<h1>プロフィール編集ページ</h1>
+<%= form_with model: @user, url: profiles_path, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <p class= "text-sm text-gray-400">例：ほげぽん</p>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <p class= "text-sm text-gray-400">例：music@example.com</p>
+
+  <%= f.submit %>
+<% end %>
