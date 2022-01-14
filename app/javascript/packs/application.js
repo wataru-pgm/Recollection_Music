@@ -12,6 +12,7 @@ import '../stylesheets/application';
 import "../css/tailwindcss.css";
 
 require('jquery')
+require('./preview')
 
 
 Rails.start()
