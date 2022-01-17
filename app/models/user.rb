@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  # プロフィール画像
+  has_one_attached :image
 
   # twitter認証
   has_many :authentications, dependent: :destroy
