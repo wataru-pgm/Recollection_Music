@@ -8,7 +8,7 @@
         <%= image_tag(@board.song_image) %>
       </div>
       <div class="show-song-player">
-        <audio controls src="<%= @board.song_player %>"></audio>
+        <%= audio_tag("#{@board.song_player}", controls: true, class: "vols") %>
       </div>
       <div class="show-song-title">
         <%= @board.song_title %>

@@ -11,8 +11,9 @@ import '@fortawesome/fontawesome-free/js/all';
 import '../stylesheets/application';
 import "../css/tailwindcss.css";
 
-require('jquery')
-require('./preview')
+require('jquery');
+require('./preview');
+require('./audio');
 
 
 Rails.start()
