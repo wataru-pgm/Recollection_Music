@@ -26,7 +26,7 @@
           </div>
 
           <div class = "track_player">
-            <audio controls src="<%= track.preview_url %>"></audio>
+            <%= audio_tag("#{track.preview_url}", controls: true, class: "vols") %>
           </div>
 
           <%= link_to "追加", new_board_path(song_title: track.name, artist: track.artists.map(&:name).join, song_image: track_image["url"], song_player: track.preview_url) %>
