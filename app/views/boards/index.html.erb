@@ -6,10 +6,12 @@
           一覧画面
       </h1>
     </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
       <% if @boards.present? %>
         <%= render @boards %>
       <% else %>
         <h2><%= '掲示板がありません' %></h2>
       <% end %>
+    </div>
   </section>
 </div>
