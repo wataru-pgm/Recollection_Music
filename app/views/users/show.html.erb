@@ -28,9 +28,9 @@
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
-      <div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
-        <% @boards.each do |board| %>
-          <div class="mb-4">
+      <% @boards.each do |board| %>
+        <div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+          <div class="mb-3">
             <%= image_tag(board.song_image) %>
           </div>
           <div class="text-center">
@@ -44,8 +44,8 @@
               <%= link_to board.title, board_path(board) %>
             </p>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </section>
 </div>
