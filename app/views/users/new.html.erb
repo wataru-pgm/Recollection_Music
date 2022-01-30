@@ -1,29 +1,51 @@
-<div class="container">
-  <div class="row">
-    <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h1>ユーザ新規登録</h1>
-      <%= form_with model: @user, local: true do |f| %>
-        <div class="form-group">
-          <%= f.label :name %>
-          <%= f.text_field :name, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :email %>
-          <%= f.email_field :email, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :password %>
-          <%= f.password_field :password, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, class: "form-control" %>
-        </div>
-        <%= f.submit "登録する", class: "btn btn-primary" %>
-      <% end %>
+<div class="bg-gray-800 min-h-screen w-screen flex flex-col justify-center items-center">
+  <div class="bg-white shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
+    <div class="text-center w-full font-bold text-3xl text-gray-600 p-4">
+      ユーザ新規登録
     </div>
-    <div class="twitter-login text-center">
-      <%= link_to 'Twitterでログイン', auth_at_provider_path(provider: :twitter) %>
+    <div class="flex flex-col gap-4 px-0 py-4">
+      <%= form_with model: @user, local: true do |f| %>
+        <div>
+          <%= f.label :name, class: "text-gray-700" %>
+            <div class="relative">
+                <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
+                  <i class="fas fa-user text-gray-500"></i>
+                </div>
+          <%= f.text_field :name, class: "py-2 pl-10 border border-gray-200 w-full", placeholder: "Name" %>
+        </div>
+        <div>
+          <%= f.label :email, class: "text-gray-700" %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="font-medium text-2xl text-gray-600 absolute p-2.5 px-3 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+            </svg>
+          <%= f.email_field :email, class: "py-2 pl-10 border border-gray-200 w-full", placeholder: "Email address" %>
+        </div>
+        <div>
+          <%= f.label :password, class: "text-gray-700" %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="font-medium text-2xl text-gray-600 absolute p-2.5 px-3 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          <%= f.password_field :password, class: "py-2 pl-10 border border-gray-200 w-full", placeholder: "Password" %>
+        </div>
+        <div>
+          <%= f.label :password_confirmation, class: "text-gray-700" %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="font-medium text-2xl text-gray-600 absolute p-2.5 px-3 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          <%= f.password_field :password_confirmation, class: "py-2 pl-10 border border-gray-200 w-full", placeholder: "Password confirmation" %>
+        </div>
+        <%= f.submit "登録する", class: "border border-indigo-500 hover:bg-indigo-500 hover:text-white duration-100 ease-in-out text-indigo-500 p-2 flex flex-row justify-center items-center gap-1" %>
+      <% end %>
+
+      <div class="my-2 flex flex-row justify-center">
+        <span class="absolute bg-white px-4">or</span>
+        <div class="w-full bg-gray-200 m-3" style="height: 1px"></div>
+      </div>
+      <div class="w-full flex flex-col gap-2">
+        <button class="twitter-login bg-blue-600 text-white w-full p-2 flex flex-row justify-center gap-2 items-center hover:bg-blue-700 duration-100 ease-in-out">
+          <%= link_to 'Twitterでログイン', auth_at_provider_path(provider: :twitter) %>
+        </button>
+      </div>
     </div>
   </div>
 </div>
