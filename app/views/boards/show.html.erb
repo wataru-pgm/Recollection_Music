@@ -7,50 +7,53 @@
 
       <div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
         <!-- 投稿された内容 -->
-        <div class="font-semibold text-center mx-4">
+        <div class="text-xl text-white font-bold text-center mx-4 mb-3">
           <%= link_to @board.user.name, user_path(@board.user) %>
         </div>
 
-        <%= image_tag(@board.song_image) %>
-        <div class="show-song-player">
+        <div class="mb-5">
+          <%= image_tag(@board.song_image) %>
+        </div>
+        <div class="mb-3">
           <%= audio_tag("#{@board.song_player}", controls: true, class: "vols") %>
         </div>
-        <p class="text-base text-gray-400 font-normal">
+        <p class="text-base text-gray-400 font-semibold">
           <%= @board.song_title %>
         </p>
-        <p class="text-base text-gray-400 font-normal mb-3">
+        <p class="text-base text-gray-400 font-semibold mb-3">
           <%= @board.artist %>
         </p>
 
         <div class="text-center">
-          <div class="flex justify-center items-center gap-2 my-3 text-xl text-white font-bold">
+          <div class="flex justify-center items-center gap-2 my-3 text-xl text-white">
             <% if @board.user == current_user %>
               <%= link_to "編集", edit_board_path %>
               <%= link_to "削除", board_path, method: :delete %>
             <% end %>
           </div>
-          <div class="show-title">
+          <div class="text-xl text-white font-bold mb-3">
             <%= @board.title %>
           </div>
-          <div class="show-body">
+          <div class="text-xl text-white font-bold mb-2">
             <%= @board.body %>
           </div>
         </div>
 
         <!-- いいね！ボタン -->
-        <div class="likes" id="js-like-<%= @board.id %>">
-          <%= render 'likes/like', board: @board %>
+        <div class="text-xl text-white font-semibold mb-5">
+          <div class="likes" id="js-like-<%= @board.id %>">
+            <%= render 'likes/like', board: @board %>
+          </div>
         </div>
 
         <!-- コメント記入欄 -->
-        <div class="text-xl text-white font-bold mb-6">
+        <div class="text-xl text-black font-bold mb-6">
           <%= render "comments/form", board: @board, comment: @comment %>
         </div>
         <!-- コメント一覧 -->
         <div class="text-xl text-white font-bold mb-6">
           <%= render "comments/comments", board: @board, comments: @comments %>
         </div>
-
       </div>
     </div>
   </section>

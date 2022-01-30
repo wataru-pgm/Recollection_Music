@@ -5,7 +5,7 @@
     <%= comment.user.name %>
     <%= comment.body %>
     <%= comment.created_at.strftime('%Y/%m/%d') %>
-    <% if comment.user = current_user %>
+    <% if comment.user == current_user %>
       <div class="comment-delete">
         <%= link_to "削除", comment_path(comment), method: :delete, data: {confirm: "本当に削除しますか？"} %>
       </div>
