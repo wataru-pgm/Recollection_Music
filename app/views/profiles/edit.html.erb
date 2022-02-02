@@ -1,16 +1,22 @@
-<h1>プロフィール編集ページ</h1>
-<%= form_with model: @user, url: profiles_path, local: true do |f| %>
-  <%= f.label :image %>
-  <%= f.file_field :image, id: "profile-image" %>
-  <div id="new-image"></div>
+<div class="bg-gray-800 min-h-screen w-screen flex flex-col justify-center items-center">
+  <div class="bg-white shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
+    <div class="text-center w-full font-bold text-3xl text-gray-600 p-4">
+      プロフィール編集ページ
+    </div>
+    <%= form_with model: @user, url: profiles_path, local: true do |f| %>
+      <%= f.label :image %>
+      <%= f.file_field :image, id: "profile-image" %>
+      <div id="new-image"></div>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <p class= "text-sm text-gray-400">例：ほげぽん</p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <p class= "text-sm text-gray-400">例：ほげぽん</p>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <p class= "text-sm text-gray-400">例：music@example.com</p>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+      <p class= "text-sm text-gray-400">例：music@example.com</p>
 
-  <%= f.submit %>
-<% end %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
