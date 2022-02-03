@@ -1,15 +1,18 @@
 <!-- コメント一覧 -->
-<p>コメント件数：<%= board.comments.count %>件</p>
+<p class="mb-5">
+  コメント件数：<%= board.comments.count %>件
+</p>
 <% if board.comments.present? %>
   <% board.comments.each do |comment| %>
-    <%= comment.user.name %>
-    <%= comment.body %>
-    <%= comment.created_at.strftime('%Y/%m/%d') %>
-    <% if comment.user = current_user %>
-      <div class="comment-delete">
-        <%= link_to "削除", comment_path(comment), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+    <div class="mb-3">
+      <%= comment.user.name %>
+      <div>
+        <%= comment.body %>
+        <% if comment.user == current_user %>
+          <%= link_to "削除", comment_path(comment), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   <% end %>
 <% else %>
   <p>コメントはまだありません</p>

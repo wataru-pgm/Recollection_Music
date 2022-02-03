@@ -1,8 +1,22 @@
-<h1>プロフィール詳細</h1>
-<%= "#{current_user.name}さんのプロフィールページ" %>
-<%= image_tag @user.image, id: 'image' if @user.image.present? %>
-<%= current_user.name %>
-<%= current_user.email %>
-
-<%= link_to "編集", edit_profiles_path %>
-<%= link_to "退会", user_path(current_user), method: :delete %>
+<div class="bg-gray-800 min-h-screen w-screen flex flex-col justify-center items-center">
+  <div class="bg-white shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
+    <div class="text-center w-full font-bold text-3xl text-gray-600 p-4">
+      <%= "#{current_user.name}さんのプロフィール" %>
+    </div>
+    <div class="bg-white relative shadow-xl w-5/6 md:w-4/6  lg:w-3/6 xl:w-2/6 mx-auto">
+      <%= image_tag @user.image, id: 'image' if @user.image.present? %>
+    </div>
+    
+    <div class="text-center">
+      <%= current_user.name %>
+    </div>
+    <div class="text-center">
+      <%= current_user.email %>
+    </div>
+    
+    <div class="text-center">
+      <%= link_to "編集", edit_profiles_path %>
+      <%= link_to "退会", user_path(current_user), method: :delete %>
+    </div>
+  </div>
+</div>

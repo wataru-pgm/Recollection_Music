@@ -1,38 +1,48 @@
-<div class="container">
-  <div class="row">
-    <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h1>曲検索フォーム</h1>
-      <%= form_with url: search_boards_path, method: :get, local: true do |form| %>
-        <%= form.text_field :search %>
-        <%= form.submit '曲名検索', name: nil %>
-      <% end %>
+<div class="w-full bg-gray-800">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
+    <div class="text-center pb-12">
+      <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
+        曲検索フォーム
+      </h1>
+      <p class="text-white mx-auto font-normal text-sm my-6 max-w-lg">
+        曲やアーティスト名を入力して曲を選択してください
+      </p>
 
-      <h3>結果</h3>
+      <%= form_with url: search_boards_path, method: :get, local: true do |form| %>
+        <%= form.text_field :search, placeholder: "曲、アーティスト" %>
+        <%= form.submit '検索', name: nil %>
+      <% end %>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
       <% if @tracks.present? %>
         <% @tracks.each do |track| %>
-          <div class="track-name">
-            <i class="fas fa-music"></i>
-            <%= track.name %>
+          <div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+            <div class="text-gray-400">
+              <i class="fas fa-music"></i>
+              <%= track.name %>
+            </div>
+
+            <div class="mb-3 text-gray-400">
+              <i class="fas fa-user-alt"></i>
+              <%= track.artists.map(&:name).join %>
+            </div>
+
+            <div class="mb-5">
+              <% track_image = track.album.images[1] %>
+              <%= image_tag(track_image["url"]) %>
+            </div>
+
+            <div class="mb-5">
+              <%= audio_tag("#{track.preview_url}", controls: true, class: "vols") %>
+            </div>
+            
+            <div class="text-white">
+              <%= link_to "追加", new_board_path(song_title: track.name, artist: track.artists.map(&:name).join, song_image: track_image["url"], song_player: track.preview_url) %>
+            </div>
           </div>
-
-          <div class="artist-name">
-            <i class="fas fa-user-alt"></i>
-            <%= track.artists.map(&:name).join %>
-          </div>
-
-          <div class="track-image">
-            <% track_image = track.album.images[1] %>
-            <%= image_tag(track_image["url"]) %>
-          </div>
-
-          <div class = "track_player">
-            <audio controls src="<%= track.preview_url %>"></audio>
-          </div>
-
-          <%= link_to "追加", new_board_path(song_title: track.name, artist: track.artists.map(&:name).join, song_image: track_image["url"], song_player: track.preview_url) %>
-
         <% end %>
       <% end %>
     </div>
-  </div>
+  </section>
 </div>
