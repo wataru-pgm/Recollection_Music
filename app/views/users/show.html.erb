@@ -8,7 +8,9 @@
 
     <div class="flex justify-center items-center gap-2 my-3">
       <div class="font-semibold text-center mx-4">
-        <%= image_tag @user.image, id: 'image' if @user.image.present? %>
+        <div class="mb-5">
+          <%= image_tag @user.image, class: "rounded-full shadow mx-auto w-48 h-48" if @user.image.present? %>
+        </div>
         <p class="text-black">
           <%= link_to "#{@user.followings.count}フォロー", following_user_path(@user)  %>
           <%= link_to "#{@user.followers.count}フォロワー", follower_user_path(@user) %>
@@ -44,6 +46,7 @@
             <p class="text-xl text-white font-bold mb-6">
               <%= link_to board.title, board_path(board) %>
             </p>
+            <>
           </div>
         </div>
       <% end %>

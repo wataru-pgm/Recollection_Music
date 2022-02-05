@@ -5,6 +5,7 @@
 <% if board.comments.present? %>
   <% board.comments.each do |comment| %>
     <div class="mb-3">
+      <%= image_tag comment.user.image, class: "rounded-full shadow mx-auto w-28 h-28" if comment.user.image.present? %>
       <%= comment.user.name %>
       <div>
         <%= comment.body %>
