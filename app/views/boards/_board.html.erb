@@ -1,10 +1,10 @@
-<div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+<div class="w-full bg-white rounded-lg shadow-lg p-12 flex flex-col justify-center items-center">
   <div class="mb-8">
     <%= image_tag(board.song_image) %>
   </div>
   <div class="text-center">
     <p class="text-base text-gray-400 font-normal"><%= board.song_title %></p>
     <p class="text-base text-gray-400 font-normal"><%= board.artist %></p>
-    <p class="text-xl text-white font-bold mb-2"><%= link_to board.title, "/boards/#{board.id}" %></p>
+    <p class="text-xl font-bold mb-2"><%= link_to board.title, "/boards/#{board.id}" %></p>
   </div>
 </div>
