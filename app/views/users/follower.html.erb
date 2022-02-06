@@ -1,18 +1,19 @@
-<div class="container">
-  <div class="row">
-    <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h1>フォロワー一覧</h1>
-      <div class="col-12">
-        <div class="row">
-          <% if @users.present? %>
-            <% @users.each do |user| %>
-              <%= user.name %>
-            <% end %>
-          <% else %>
-            <h2><%= 'フォロワーがいません' %></h2>
-          <% end %>
-        </div>
-      </div>
+<div class="w-full min-h-screen bg-gradient-to-r from-purple-400 to-pink-400">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
+    <div class="text-center pb-12">
+      <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
+          フォロワー一覧
+      </h1>
     </div>
-  </div>
+    <div>
+      <% if @users.present? %>
+        <%= image_tag @user.image, class: "rounded-full shadow mx-auto w-20 h-20" if @user.image.present? %>
+        <% @users.each do |user| %>
+          <%= user.name %>
+        <% end %>
+      <% else %>
+        <h2><%= 'フォロワーがいません' %></h2>
+      <% end %>
+    </div>
+  </section>
 </div>
