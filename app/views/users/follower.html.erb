@@ -5,11 +5,15 @@
           フォロワー一覧
       </h1>
     </div>
-    <div>
+    <div class="text-center">
       <% if @users.present? %>
-        <%= image_tag @user.image, class: "rounded-full shadow mx-auto w-20 h-20" if @user.image.present? %>
         <% @users.each do |user| %>
-          <%= user.name %>
+          <div>
+            <%= image_tag user.image, class: "rounded-full shadow mx-auto w-28 h-28" if user.image.present?%>
+          </div>
+          <div>
+            <%= link_to user.name, user_path(user), class: "font-bold"  %>
+          </div>
         <% end %>
       <% else %>
         <h2><%= 'フォロワーがいません' %></h2>
