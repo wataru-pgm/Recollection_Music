@@ -4,6 +4,7 @@
     <p class="text-xl font-bold mt-2 mb-3">
       『<%= link_to board.title, "/boards/#{board.id}" %>』
     </p>
+    <%= image_tag board.board_image %>
     <div class="mb-5">
       <%= image_tag(board.song_image) %>
     </div>
