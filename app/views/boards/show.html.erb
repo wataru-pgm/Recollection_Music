@@ -1,60 +1,62 @@
-<div class="w-full bg-gray-800">
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
-    <div class="text-center pb-12">
-      <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
-        投稿詳細ページ
-      </h1>
 
-      <div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
-        <!-- 投稿された内容 -->
-        <div class="text-xl text-white font-bold text-center mx-4 mb-3">
-          <%= link_to @board.user.name, user_path(@board.user) %>
-        </div>
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
+  <div class="text-center pb-12">
+    <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white pb-12">
+      投稿詳細ページ
+    </h1>
 
-        <div class="mb-5">
-          <%= image_tag(@board.song_image) %>
-        </div>
-        <div class="mb-3">
-          <%= audio_tag("#{@board.song_player}", controls: true, class: "vols") %>
-        </div>
-        <p class="text-base text-gray-400 font-semibold">
-          <%= @board.song_title %>
-        </p>
-        <p class="text-base text-gray-400 font-semibold mb-3">
-          <%= @board.artist %>
-        </p>
+    <div class="w-full bg-white rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+      <!-- 投稿された内容 -->
+      <div class="text-xl font-bold text-center mx-4 mb-3">
+        <%= image_tag @board.user.image, class: "rounded-full shadow mx-auto w-20 h-20" if @board.user.image.present? %>
+        <%= link_to @board.user.name, user_path(@board.user) %>
+      </div>
 
-        <div class="text-center">
-          <div class="flex justify-center items-center gap-2 my-3 text-xl text-white">
-            <% if @board.user == current_user %>
-              <%= link_to "編集", edit_board_path %>
-              <%= link_to "削除", board_path, method: :delete %>
-            <% end %>
-          </div>
-          <div class="text-xl text-white font-bold mb-3">
-            <%= @board.title %>
-          </div>
-          <div class="text-xl text-white font-bold mb-2">
-            <%= @board.body %>
-          </div>
-        </div>
+      <div class="mb-5">
+        <%= image_tag(@board.song_image) %>
+      </div>
+      <div class="mb-3">
+        <%= audio_tag("#{@board.song_player}", controls: true, class: "vols") %>
+      </div>
+      <p class="text-base text-gray-400 font-semibold">
+        <i class="fas fa-music"></i>
+        <%= @board.song_title %>
+      </p>
+      <p class="text-base text-gray-400 font-semibold mb-3">
+        <i class="fas fa-user-alt"></i>
+        <%= @board.artist %>
+      </p>
 
-        <!-- いいね！ボタン -->
-        <div class="text-xl text-white font-semibold mb-5">
-          <div class="likes" id="js-like-<%= @board.id %>">
-            <%= render 'likes/like', board: @board %>
-          </div>
+      <div class="text-center">
+        <div class="flex justify-center items-center gap-2 my-3 text-xl">
+          <% if @board.user == current_user %>
+            <%= link_to "編集", edit_board_path %>
+            <%= link_to "削除", board_path, method: :delete %>
+          <% end %>
         </div>
-
-        <!-- コメント記入欄 -->
-        <div class="text-xl text-black font-bold mb-6">
-          <%= render "comments/form", board: @board, comment: @comment %>
+        <div class="text-xl font-bold mb-3">
+          <%= @board.title %>
         </div>
-        <!-- コメント一覧 -->
-        <div class="text-xl text-white font-bold mb-6">
-          <%= render "comments/comments", board: @board, comments: @comments %>
+        <div class="text-xl font-bold mb-2">
+          <%= @board.body %>
         </div>
       </div>
+
+      <!-- いいね！ボタン -->
+      <div class="text-xl font-semibold mb-5">
+        <div class="likes" id="js-like-<%= @board.id %>">
+          <%= render 'likes/like', board: @board %>
+        </div>
+      </div>
+
+      <!-- コメント記入欄 -->
+      <div class="text-xl text-black font-bold mb-6">
+        <%= render "comments/form", board: @board, comment: @comment %>
+      </div>
+      <!-- コメント一覧 -->
+      <div class="text-xl font-bold mb-6">
+        <%= render "comments/comments", board: @board, comments: @comments %>
+      </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>

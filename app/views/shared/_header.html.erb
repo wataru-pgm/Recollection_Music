@@ -1,12 +1,12 @@
-<nav class="flex items-center justify-between flex-wrap bg-gray-900 p-3 text-white">
-  <%= link_to "Nostalgia", root_path %>
+<nav class="flex items-center justify-between flex-wrap bg-white p-3">
+  <%= link_to "Re:Collect", root_path %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div>
     <ul class="navbar-nav">
-      <li class="nav-item">
+      <li class="nav-item m-2">
         使い方
         <% if logged_in? %>
           <%= link_to "新規投稿", search_boards_path %>

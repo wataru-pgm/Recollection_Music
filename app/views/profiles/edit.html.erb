@@ -1,4 +1,4 @@
-<div class="bg-gray-800 min-h-screen w-screen flex flex-col justify-center items-center">
+<div class="min-h-screen w-screen flex flex-col justify-center items-center">
   <div class="bg-white shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
     <div class="text-center w-full font-bold text-3xl text-gray-600 p-4">
       プロフィール編集ページ
@@ -12,7 +12,7 @@
       <p class= "text-sm text-gray-400">例：ほげぽん</p>
 
       <%= f.label :email %>
-      <%= f.email_field :email %>
+      <%= f.text_field :email %>
       <p class= "text-sm text-gray-400">例：music@example.com</p>
 
       <%= f.submit %>

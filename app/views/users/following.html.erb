@@ -1,14 +1,19 @@
-<div class="container">
-  <div class="row">
-    <div class=" col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-    
-      <h1>フォロー一覧</h1>
-      
-      <div class="col-12">
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
+  <div class="text-center pb-12">
+    <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
+      フォロー一覧
+    </h1>
+  </div>
+      <div class="text-center">
         <div class="row">
           <% if @users.present? %>
             <% @users.each do |user| %>
-              <%= user.name %>
+              <div>
+                <%= image_tag user.image, class: "rounded-full shadow mx-auto w-28 h-28" if user.image.present?%>
+              </div>
+              <div>
+                <%= link_to user.name, user_path(user), class: "font-bold"  %>
+              </div>
             <% end %>
           <% else %>
             <h2><%= 'フォローしている人がいません' %></h2>
