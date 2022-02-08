@@ -1,19 +1,26 @@
-<div class="w-full bg-white rounded-lg shadow-lg p-10 flex flex-col justify-center items-center">
+<div class="w-full bg-white rounded-lg shadow-lg p-6 flex flex-col justify-center items-center">
   <div class="text-center">
     <%= link_to board.user.name, user_path(board.user), class: "font-bold" %>さんの思い出
     <p class="text-xl font-bold mt-2 mb-3">
       『<%= link_to board.title, "/boards/#{board.id}" %>』
     </p>
-    <div class="mb-5">
-      <%= image_tag(board.song_image) %>
+    <%= image_tag board.board_image %>
+    <div>
+      <div class="flex ml-3 justify-center">
+        <div class="mt-6 mb-5 w-20">
+          <%= image_tag(board.song_image) %>
+        </div>
+        <div class="text-gray-400 text-left m-6">
+          <div class="mt-3">
+            <i class="fas fa-music"></i>
+            <%= board.song_title %><br>
+          </div>
+          <div class="mt-1">
+            <i class="fas fa-user-alt"></i>
+            <%= board.artist %>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="text-base text-gray-400 font-normal">
-      <i class="fas fa-music"></i>
-      <%= board.song_title %>
-    </p>
-    <p class="text-base text-gray-400 font-normal">
-      <i class="fas fa-user-alt"></i>
-      <%= board.artist %>
-    </p>
   </div>
 </div>

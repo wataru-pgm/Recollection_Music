@@ -28,17 +28,20 @@
       </p>
 
       <div class="text-center">
-        <div class="flex justify-center items-center gap-2 my-3 text-xl">
-          <% if @board.user == current_user %>
-            <%= link_to "編集", edit_board_path %>
-            <%= link_to "削除", board_path, method: :delete %>
-          <% end %>
+        <div>
+          <%= image_tag @board.board_image %>
         </div>
         <div class="text-xl font-bold mb-3">
           <%= @board.title %>
         </div>
         <div class="text-xl font-bold mb-2">
           <%= @board.body %>
+        </div>
+        <div class="flex justify-center items-center gap-2 my-3 text-xl">
+          <% if @board.user == current_user %>
+            <%= link_to "編集", edit_board_path %>
+            <%= link_to "削除", board_path, method: :delete %>
+          <% end %>
         </div>
       </div>
 

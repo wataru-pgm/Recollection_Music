@@ -29,6 +29,11 @@
           <%= f.hidden_field :song_image %>
           <%= f.hidden_field :song_player %>
         </div>
+        <div>
+          <%= f.label :board_image %>
+          <%= f.file_field :board_image, id: "image" %>
+        </div>
+        <div id="new-image"></div>
         <div class="text-xl font-bold mb-3">
           <%= f.label :title %>
           <%= f.text_field :title, class: "form-control text-black" %>
