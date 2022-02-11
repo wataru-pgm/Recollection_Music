@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_111_112_714) do
+ActiveRecord::Schema.define(version: 2022_01_11_112714) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,8 +22,7 @@ ActiveRecord::Schema.define(version: 20_220_111_112_714) do
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index %w[record_type record_id name blob_id], name: "index_active_storage_attachments_uniqueness",
-                                                    unique: true
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
   create_table "active_storage_blobs", force: :cascade do |t|
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20_220_111_112_714) do
   create_table "active_storage_variant_records", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
-    t.index %w[blob_id variation_digest], name: "index_active_storage_variant_records_uniqueness", unique: true
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
   create_table "authentications", force: :cascade do |t|
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20_220_111_112_714) do
     t.string "uid", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index %w[provider uid], name: "index_authentications_on_provider_and_uid"
+    t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
   end
 
   create_table "boards", force: :cascade do |t|
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20_220_111_112_714) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["board_id"], name: "index_likes_on_board_id"
-    t.index %w[user_id board_id], name: "index_likes_on_user_id_and_board_id", unique: true
+    t.index ["user_id", "board_id"], name: "index_likes_on_user_id_and_board_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20_220_111_112_714) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
-    t.index %w[user_id follower_id], name: "index_relationships_on_user_id_and_follower_id", unique: true
+    t.index ["user_id", "follower_id"], name: "index_relationships_on_user_id_and_follower_id", unique: true
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
