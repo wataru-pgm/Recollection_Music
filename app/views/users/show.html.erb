@@ -35,7 +35,11 @@
         <p class="text-xl font-bold mb-3">
           『<%= link_to board.title, board_path(board) %>』
         </p>
-        <%= image_tag board.board_image %>
+        <% if board.board_image.present? %>
+          <%= image_tag board.board_image %>
+        <% else %>
+          <%= image_tag '/assets/noimage.png' %>
+        <% end %>
         <div class="flex ml-3 justify-center">
           <div class="mt-6 mb-5 w-20">
             <%= image_tag(board.song_image) %>

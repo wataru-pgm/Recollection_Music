@@ -1,5 +1,5 @@
 class Board < ApplicationRecord
-  has_one_attached :board_image, dependent: :destroy
+  has_one_attached :board_image
 
   belongs_to :user
   has_many :comments, dependent: :destroy

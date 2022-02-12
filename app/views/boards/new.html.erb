@@ -23,6 +23,13 @@
 
 
       <%= form_with model: @board, local: true do |f| %>
+        <% if @board.errors.any? %>
+          <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">
+              <%= render 'shared/error_messages', object: f.object %>
+            </strong>
+          </div>
+        <% end %>
         <div class="form-group">
           <%= f.hidden_field :song_title %>
           <%= f.hidden_field :artist %>
@@ -35,12 +42,20 @@
         </div>
         <div id="new-image"></div>
         <div class="text-xl font-bold mb-3">
-          <%= f.label :title %>
-          <%= f.text_field :title, class: "form-control text-black" %>
+          <div>
+            <%= f.label :title %>
+          </div>
+          <div>
+            <%= f.text_field :title, placeholder: "タイトルを入力してください", size: "30", class: "form-control text-black" %>
+          </div>
         </div>
         <div class="text-xl font-bold mb-2">
-          <%= f.label :body %>
-          <%= f.text_area :body, class:"form-control text-black" %>
+          <div>
+            <%= f.label :body %>
+          </div>
+          <div>
+            <%= f.text_area :body, placeholder: "思い出の内容を入力してください", size: "30x10", class:"form-control text-black" %>
+          </div>
         </div>
         <div class='text-center'>
           <%= f.submit "投稿する", class: "btn btn-primary" %>
