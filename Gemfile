@@ -25,6 +25,7 @@ gem 'font-awesome-sass', '~> 5.12.0'
 gem 'rspotify'
 gem 'aws-sdk-s3', require: false
 gem 'mini_magick', '>= 4.9.5 '
+gem 'rails-i18n'
 
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
