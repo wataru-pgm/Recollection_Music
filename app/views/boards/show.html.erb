@@ -29,7 +29,11 @@
 
       <div class="text-center">
         <div>
-          <%= image_tag @board.board_image %>
+          <% if @board.board_image.present? %>
+            <%= image_tag @board.board_image %>
+          <% else %>
+            <%= image_tag '/assets/noimage.png' %>
+          <% end %>
         </div>
         <div class="text-xl font-bold mb-3">
           <%= @board.title %>

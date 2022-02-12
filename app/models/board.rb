@@ -8,5 +8,4 @@ class Board < ApplicationRecord
 
   validates :title, presence: true, length: { minimum: 5, maximum: 15 }
   validates :body,  presence: true, length: { minimum: 5, maximum: 200 }
-  validates :board_image, presence: true
 end

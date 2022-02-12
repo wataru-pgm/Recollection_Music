@@ -24,7 +24,6 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'rspotify'
 gem 'aws-sdk-s3', require: false
-gem 'active_storage_validations'
 gem 'mini_magick', '>= 4.9.5 '
 
 # gem 'redis', '~> 4.0'

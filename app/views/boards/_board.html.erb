@@ -4,7 +4,11 @@
     <p class="text-xl font-bold mt-2 mb-3">
       『<%= link_to board.title, "/boards/#{board.id}" %>』
     </p>
-    <%= image_tag board.board_image %>
+    <% if board.board_image.present? %>
+      <%= image_tag board.board_image %>
+    <% else %>
+      <%= image_tag '/assets/noimage.png' %>
+    <% end %>
     <div>
       <div class="flex ml-3 justify-center">
         <div class="mt-6 mb-5 w-20">
