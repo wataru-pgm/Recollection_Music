@@ -12,9 +12,10 @@
 
   <body>
     <%= render "shared/header" %>
-      <div class="min-h-screen w-full bg-gradient-to-r from-purple-400 to-pink-400">
-        <%= yield %>
-      </w-full>
+    <%= render "shared/flash" %>
+    <div class="min-h-screen w-full bg-gradient-to-r from-purple-400 to-pink-400">
+      <%= yield %>
+    </div>
     <%= render "shared/footer" %>
   </body>
 </html>

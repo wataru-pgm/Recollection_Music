@@ -5,11 +5,11 @@
       曲検索フォーム
     </h1>
     <p class="text-white mx-auto font-normal text-sm my-6 max-w-lg">
-      曲やアーティスト名を入力して曲を選択してください
+      曲名やアーティスト名を入力して、想い出の曲を選択してください
     </p>
 
     <%= form_with url: search_boards_path, method: :get, local: true do |form| %>
-      <%= form.text_field :search, placeholder: "曲、アーティスト" %>
+      <%= form.text_field :search, placeholder: "曲、アーティスト", size: "30" %>
       <%= form.submit '検索', name: nil %>
     <% end %>
   </div>
