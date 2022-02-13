@@ -9,9 +9,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
-      redirect_to boards_path, success: "ユーザ登録しました"
+      redirect_to boards_path, success: t('.success')
     else
-      flash.now[:danger] = "ユーザ登録に失敗しました"
+      flash.now[:danger] = t('.fail')
       render :new
     end
   end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to root_path, notice: "ユーザ「#{@user.name}」を削除しました"
+    redirect_to root_path, success: "ユーザ「#{@user.name}」を削除しました"
   end
 
   def following
