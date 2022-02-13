@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザ
+      board: 想い出
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+      board:
+        title: タイトル
+        body: 内容
+        board_image: 想い出の画像

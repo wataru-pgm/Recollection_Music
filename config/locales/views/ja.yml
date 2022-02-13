@@ -1,0 +1,41 @@
+ja:
+  defaults:
+    login: ログイン
+    logout: ログアウト
+    register: 新規登録
+    require_login: ログインしてください
+  users:
+    new:
+      title: 新規登録
+    create:
+      success: ユーザ登録しました
+      fail: ユーザ登録に失敗しました
+  user_sessions:
+    new:
+      title: ログイン
+    create:
+      success: ログインしました
+      fail: ログインに失敗しました
+    destroy:
+      success: ログアウトしました
+  boards:
+    new:
+      title: 想い出の新規投稿
+    create:
+      success: 想い出を投稿しました
+      fail: 想い出の投稿に失敗しました
+    search:
+      title: 選曲ページ
+    edit:
+      title: 想い出の編集
+    update:
+      success: 想い出を更新しました
+      fail: 想い出の更新に失敗しました
+    destroy:
+      success: 想い出を削除しました
+  profiles:
+    edit:
+      title: プロフィール編集
+    update:
+      success: プロフィールを更新しました
+      fail: プロフィールの更新に失敗しました
