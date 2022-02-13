@@ -8,7 +8,7 @@
       <%= image_tag comment.user.image, class: "rounded-full shadow mx-auto w-16 h-16" if comment.user.image.present? %>
       <%= comment.user.name %>
       <div>
-        <%= comment.body %>
+        <%= simple_format(comment.body) %>
         <% if comment.user == current_user %>
           <%= link_to "削除", comment_path(comment), method: :delete, data: {confirm: "本当に削除しますか？"} %>
         <% end %>
