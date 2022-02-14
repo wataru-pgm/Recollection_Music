@@ -5,9 +5,9 @@
       『<%= link_to board.title, "/boards/#{board.id}" %>』
     </p>
     <% if board.board_image.present? %>
-      <%= image_tag board.board_image %>
+      <%= image_tag board.board_image.variant(resize:'300x200').processed %>
     <% else %>
-      <%= image_tag '/assets/noimage.png' %>
+      <%= image_tag '/assets/noimage.png', size: '300x300' %>
     <% end %>
     <div>
       <div class="flex ml-3 justify-center">
