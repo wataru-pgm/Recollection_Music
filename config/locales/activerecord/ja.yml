@@ -9,6 +9,7 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード確認
+        image: 画像
       board:
         title: タイトル
         body: 内容

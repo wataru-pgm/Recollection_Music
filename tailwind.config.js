@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
+      outline: {
+        black: '2px solid #0f172a',
+      },
       colors: {
         success: {
           // Sky

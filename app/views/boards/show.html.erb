@@ -5,54 +5,60 @@
       投稿詳細ページ
     </h1>
 
-    <div class="w-full bg-white rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+    <div class="w-full bg-white rounded-lg sahdow-lg p-12 flex flex-col items-center">
       <!-- 投稿された内容 -->
-      <div class="text-xl font-bold text-center mx-4 mb-3">
-        <%= image_tag @board.user.image, class: "rounded-full shadow mx-auto w-20 h-20" if @board.user.image.present? %>
-        <%= link_to @board.user.name, user_path(@board.user) %>
-      </div>
-
-      <div class="mb-5">
-        <%= image_tag(@board.song_image) %>
-      </div>
-      <div class="mb-3">
-        <%= audio_tag("#{@board.song_player}", controls: true, class: "vols") %>
-      </div>
-      <p class="text-base text-gray-400 font-semibold">
-        <i class="fas fa-music"></i>
-        <%= @board.song_title %>
-      </p>
-      <p class="text-base text-gray-400 font-semibold mb-3">
-        <i class="fas fa-user-alt"></i>
-        <%= @board.artist %>
-      </p>
-
-      <div class="text-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 bg-white">
         <div>
-          <% if @board.board_image.present? %>
-            <%= image_tag @board.board_image %>
-          <% else %>
-            <%= image_tag '/assets/noimage.png' %>
-          <% end %>
+          <div>
+            <div class="text-xl justify-center font-bold flex mx-4 mb-3">
+              <%= image_tag @board.user.image, class: "rounded-full shadow w-20 h-20" if @board.user.image.present? %>
+              <div class="my-auto justify-center">
+                <%= link_to @board.user.name, user_path(@board.user) %>
+              </div>
+            </div>
+            <div class="mb-5 flex justify-center ">
+              <%= image_tag(@board.song_image) %>
+            </div>
+          </div>
+          <div class="mb-3 flex justify-center">
+            <%= audio_tag("#{@board.song_player}", controls: true, class: "vols") %>
+          </div>
+          <p class="text-base justify-center text-gray-400 font-semibold m-auto">
+            <i class="fas fa-music"></i>
+            <%= @board.song_title %>
+          </p>
+          <p class="text-md text-base justify-center text-gray-400 font-semibold mb-4">
+            <i class="fas fa-user-alt"></i>
+            <%= @board.artist %>
+          </p>
         </div>
-        <div class="text-xl font-bold mb-3">
-          <%= @board.title %>
-        </div>
-        <div class="text-xl font-bold mb-2">
-          <%= @board.body %>
-        </div>
-        <div class="flex justify-center items-center gap-2 my-3 text-xl">
-          <% if @board.user == current_user %>
-            <%= link_to "編集", edit_board_path %>
-            <%= link_to "削除", board_path, method: :delete %>
-          <% end %>
-        </div>
-      </div>
 
-      <!-- いいね！ボタン -->
-      <div class="text-xl font-semibold mb-5">
-        <div class="likes" id="js-like-<%= @board.id %>">
-          <%= render 'likes/like', board: @board %>
+        <div class="text-center">
+          <div class="text-4xl font-bold mb-5">
+            『<%= @board.title %>』
+          </div>
+          <div>
+            <% if @board.board_image.present? %>
+              <%= image_tag @board.board_image.variant(resize:'512x300').processed, class: "mb-6" %>
+            <% else %>
+              <%= image_tag '/assets/noimage.png', size: '512x300', class: "mb-6" %>
+            <% end %>
+          </div>
+          <div class="text-2xl font-bold mb-2">
+            <%= simple_format(@board.body) %>
+          </div>
+          <div class="flex justify-end items-center gap-2 my-3 text-xl">
+            <% if @board.user == current_user %>
+              <%= link_to "編集", edit_board_path %>
+              <%= link_to "削除", board_path, method: :delete %>
+            <% end %>
+          </div>
+          <!-- いいね！ボタン -->
+          <div class="text-2xl font-semibold mb-5">
+            <div class="likes" id="js-like-<%= @board.id %>">
+              <%= render 'likes/like', board: @board %>
+            </div>
+          </div>
         </div>
       </div>
 
