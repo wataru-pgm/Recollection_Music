@@ -1,8 +1,14 @@
 class CommentsController < ApplicationController
+  skip_before_action :require_login, only: [:create]
+
   def create
-    @comment = current_user.comments.build(comment_params)
-    @comment.save
-    redirect_to board_path(@comment.board)
+    if logged_in?
+      @comment = current_user.comments.build(comment_params)
+      @comment.save
+      redirect_to board_path(@comment.board)
+    else
+      redirect_to login_path, danger: "ログインしてください"
+    end
   end
 
   def destroy

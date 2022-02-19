@@ -32,7 +32,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
     <% @boards.each do |board| %>
       <div class="w-full bg-white rounded-lg sahdow-lg p-10 flex flex-col justify-center items-center">
-        <p class="text-3xl font-bold mb-3">
+        <p class="text-xl font-bold mt-2 mb-3">
           『<%= link_to board.title, board_path(board) %>』
         </p>
         <% if board.board_image.present? %>
