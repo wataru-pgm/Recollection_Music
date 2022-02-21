@@ -55,9 +55,7 @@
         <button class="twitter-login bg-blue-600 text-white w-full p-2 flex flex-row justify-center gap-2 items-center hover:bg-blue-700 duration-100 ease-in-out">
           <%= link_to 'Twitterでログイン', auth_at_provider_path(provider: :twitter) %>
         </button>
-        <button class="border border-gray-200 hover:bg-gray-200 hover:text-white duration-100 ease-in-out text-black p-2 flex flex-row justify-center items-center cursor-pointer mt-2">
-          <%= link_to "ログインはこちら", login_path %>
-        </button>
+          <%= link_to "ログインはこちら", login_path, class: "hover:underline text-center mt-3" %>
       </div>
     </div>
   </div>
