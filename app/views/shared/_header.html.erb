@@ -4,8 +4,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+
   <div>
-    <ul class="navbar-nav">
+    <ul class="hidden md:flex flex-auto space-x-2">
       <li class="nav-item m-2">
         <% if logged_in? %>
           <%= link_to "新規投稿", search_boards_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
@@ -18,5 +19,38 @@
         <% end %>
       </li>
     </ul>
+  </div>
+
+  <div class="block md:hidden">
+    <div onclick="selectNew()" class="cursor-pointer px-2 py-2 text-white bg-indigo-600 rounded flex justify-between">
+      <svg id="ArrowSVG" class=" transform" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 9L12 15L18 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class=" relative">
+      <ul id="list" class=" hidden font-normal text-base leading-4 absolute top-2  w-full rounded shadow-md">
+        <% if logged_in? %>
+          <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal">
+            <%= link_to "新規投稿", search_boards_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
+          </li>
+          <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal">
+            <%= link_to "投稿一覧", boards_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
+          </li>
+          <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal">
+            <%= link_to "プロフィール", profiles_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
+          </li>
+          <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal">
+            <%= link_to "ログアウト", logout_path, method: :delete, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
+          </li>
+        <% else %>
+          <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal">
+            <%= link_to "新規登録", new_user_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
+          </li>
+          <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal">
+            <%= link_to "ログイン", login_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </nav>
