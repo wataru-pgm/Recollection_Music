@@ -14,6 +14,7 @@ import "../css/tailwindcss.css";
 require('jquery');
 require('./preview');
 require('./audio');
+require('./header');
 
 
 Rails.start()
