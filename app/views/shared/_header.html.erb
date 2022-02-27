@@ -3,55 +3,23 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <!-- 通常時のMenuボタン -->
   <div>
-    <ul class="hidden md:flex flex-auto space-x-2">
-      <li class="nav-item m-2">
-        <% if logged_in? %>
-          <%= link_to "新規投稿", search_boards_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
-          <%= link_to "投稿一覧", boards_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
-          <%= link_to "プロフィール", profiles_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
-          <%= link_to "ログアウト", logout_path, method: :delete, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
-        <% else %>
-          <%= link_to "新規登録", new_user_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
-          <%= link_to "ログイン", login_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
-        <% end %>
-      </li>
-    </ul>
-  </div>
-
-  <!-- 画面を小さくした時のMenuボタン -->
-  <div class="block md:hidden" id="navbar-toggle">
-    <div onclick="selectNew()" class="cursor-pointer px-2 py-2 text-white bg-indigo-600 rounded flex justify-between">
-      <svg id="ArrowSVG" class="transform" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6 9L12 15L18 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+    <div class="flex justify-between items-right">
+      <button class="cursor-pointer border border-solid border-black px-3 py-1 rounded text-black opacity-50 hover:opacity-75 md:hidden" id="navbar-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
-    <div class="relative">
-      <ul id="navbar-collapse" class="hidden font-normal text-base leading-4 absolute top-2  w-full rounded shadow-md">
-        <% if logged_in? %>
-          <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:bg-gray-100 hover:bg-gray-100 cursor-pointer">
-            <%= link_to "新規投稿", search_boards_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
-          </li>
-          <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal">
-            <%= link_to "投稿一覧", boards_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
-          </li>
-          <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal">
-            <%= link_to "プロフィール", profiles_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
-          </li>
-          <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal">
-            <%= link_to "ログアウト", logout_path, method: :delete, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
-          </li>
-        <% else %>
-          <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal">
-            <%= link_to "新規登録", new_user_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
-          </li>
-          <li onclick="selectedSmall()" class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal">
-            <%= link_to "ログイン", login_path, class: "inline-block text-sm px-4 py-2 leading-none border rounded border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" %>
-          </li>
-        <% end %>
-      </ul>
+    
+    <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
+      <% if logged_in? %>
+        <%= link_to "新規投稿", search_boards_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
+        <%= link_to "投稿一覧", boards_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
+        <%= link_to "プロフィール", profiles_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
+        <%= link_to "ログアウト", logout_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
+      <% else %>
+        <%= link_to "新規登録", new_user_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
+        <%= link_to "ログイン", login_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
+      <% end %>
     </div>
   </div>
 </nav>
