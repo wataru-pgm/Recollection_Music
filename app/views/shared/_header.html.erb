@@ -1,25 +1,25 @@
-<nav class="flex items-center justify-between flex-wrap bg-white p-3">
-  <%= link_to "Re:Collect", root_path %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div>
-    <div class="flex justify-between items-right">
-      <button class="cursor-pointer border border-solid border-black px-3 py-1 rounded text-black opacity-50 hover:opacity-75 md:hidden" id="navbar-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-    
-    <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
-      <% if logged_in? %>
-        <%= link_to "新規投稿", search_boards_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
-        <%= link_to "投稿一覧", boards_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
-        <%= link_to "プロフィール", profiles_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
-        <%= link_to "ログアウト", logout_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
-      <% else %>
-        <%= link_to "新規登録", new_user_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
-        <%= link_to "ログイン", login_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
-      <% end %>
-    </div>
+<header class="sticky top-0 z-50">
+  <div class="header">
+    <nav class="bg-white py-2">
+      <div class="container px-4 mx-auto md:flex md:items-center">
+        <div class="flex justify-between items-center">
+          <%= link_to "Re:Collect", root_path %>
+          <button class="cursor-pointer border border-solid border-black px-3 py-1 rounded text-black opacity-50 hover:opacity-75 md:hidden" id="navbar-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <div class="hidden text-center md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
+          <% if logged_in? %>
+            <%= link_to "新規投稿", search_boards_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
+            <%= link_to "投稿一覧", boards_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
+            <%= link_to "プロフィール", profiles_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
+            <%= link_to "ログアウト", logout_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
+          <% else %>
+            <%= link_to "新規登録", new_user_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
+            <%= link_to "ログイン", login_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
+          <% end %>
+        </div>
+      </div>
+    </nav>
   </div>
-</nav>
+</header>
