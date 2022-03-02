@@ -27,6 +27,8 @@ gem 'aws-sdk-s3', require: false
 gem 'mini_magick', '>= 4.9.5 '
 gem 'rails-i18n'
 gem 'meta-tags'
+gem 'rails_admin', '~> 2.0'
+gem 'rails_admin-i18n'
 
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
