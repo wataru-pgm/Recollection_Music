@@ -17,3 +17,4 @@ class UserSessionsController < ApplicationController
     redirect_to root_path, success: 'ログアウトしました'
   end
 end
+

@@ -13,7 +13,7 @@
             <%= link_to "新規投稿", search_boards_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
             <%= link_to "思い出一覧", boards_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
             <%= link_to "プロフィール", profiles_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
-            <%= link_to "ログアウト", logout_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
+            <%= link_to "ログアウト", logout_path, method: :delete, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
           <% else %>
             <%= link_to "新規登録", new_user_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
             <%= link_to "ログイン", login_path, class: "p-2 lg:px-4 md:mx-2 text-md text-gray-600 text-center border border-transparent rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors duration-300" %><br>
