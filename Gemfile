@@ -29,6 +29,7 @@ gem 'rails-i18n'
 gem 'meta-tags'
 gem 'rails_admin', '~> 2.0'
 gem 'rails_admin-i18n'
+gem 'cancancan'
 
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
