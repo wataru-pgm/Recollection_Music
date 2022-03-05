@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # twitter認証
   post 'oauth/callback',  to: 'oauths#callback'
   get  'oauth/callback',  to: 'oauths#callback'

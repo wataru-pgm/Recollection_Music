@@ -17,4 +17,4 @@ if (document.URL.match(/edit/),(/new/)){
       createImageHTML(blob);
     });
   });
-}
+};
