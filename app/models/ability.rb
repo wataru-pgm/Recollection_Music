@@ -5,7 +5,10 @@ class Ability
 
   def initialize(user)
     # Define abilities for the passed in user here. For example:
-    #
+    return unless user && user.admin?  # 管理者かどうかを確認する
+    can :access, :rails_admin  #管理者画面のアクセス許可
+    can :manage, :all  #管理権限の許可
+
     #   user ||= User.new # guest user (not logged in)
     #   if user.admin?
     #     can :manage, :all
