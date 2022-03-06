@@ -1,17 +1,17 @@
 <div class="w-full bg-white rounded-lg shadow-lg p-6 flex flex-col justify-center items-center">
   <div class="text-center">
     <%= link_to board.user.name, user_path(board.user), class: "font-bold" %>さんの思い出
-    <p class="text-xl font-bold mt-2 mb-3">
-      『<%= link_to board.title, "/boards/#{board.id}" %>』
-    </p>
+    <%= link_to "/boards/#{board.id}" do  %>
+      <div class="text-xl font-bold mt-2 mb-3">
+        『<%= board.title %>』
+      </div>
 
-    <% if board.board_image.present? %>
-      <%= image_tag board.board_image.variant(resize:'300x200').processed %>
-    <% else %>
-      <%= image_tag '/assets/noimage.png', size: '300x300' %>
-    <% end %>
-
-    <div>
+      <% if board.board_image.present? %>
+        <%= image_tag board.board_image.variant(resize:'300x200').processed %>
+      <% else %>
+        <%= image_tag '/assets/noimage.png', size: '300x300' %>
+      <% end %>
+      
       <div class="flex ml-3 justify-center">
         <div class="mt-6 mb-5 w-20">
           <%= image_tag(board.song_image) %>
@@ -27,6 +27,6 @@
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
