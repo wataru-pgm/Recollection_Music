@@ -12,7 +12,7 @@
           <div>
             <div class="text-xl justify-center font-bold flex mx-4 mb-3">
               <%= image_tag @board.user.image, class: "rounded-full shadow w-20 h-20" if @board.user.image.present? %>
-              <div class="my-auto justify-center">
+              <div class="text-3xl font-bold my-auto justify-center">
                 <%= link_to @board.user.name, user_path(@board.user) %>
               </div>
             </div>
@@ -23,11 +23,11 @@
           <div class="mb-3 flex justify-center">
             <%= audio_tag("#{@board.song_player}", controls: true, class: "vols") %>
           </div>
-          <p class="text-base justify-center text-gray-400 font-semibold m-auto">
+          <p class="text-base justify-center font-bold m-auto">
             <i class="fas fa-music"></i>
             <%= @board.song_title %>
           </p>
-          <p class="text-md text-base justify-center text-gray-400 font-semibold mb-4">
+          <p class="text-md text-base justify-center font-bold mb-4">
             <i class="fas fa-user-alt"></i>
             <%= @board.artist %>
           </p>
@@ -44,7 +44,7 @@
               <%= image_tag '/assets/noimage.png', size: '512x300', class: "mb-6" %>
             <% end %>
           </div>
-          <div class="text-2xl font-bold mb-2">
+          <div class="text-3xl font-bold mb-2">
             <%= simple_format(@board.body) %>
           </div>
           <div class="flex justify-end items-center gap-2 my-3 text-xl">

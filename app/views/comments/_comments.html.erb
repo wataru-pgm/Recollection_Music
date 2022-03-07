@@ -4,13 +4,32 @@
 </p>
 <% if board.comments.present? %>
   <% board.comments.each do |comment| %>
-    <div class="mb-5">
-      <%= image_tag comment.user.image, class: "rounded-full shadow mx-auto w-16 h-16" if comment.user.image.present? %>
-      <%= comment.user.name %>
+    <div class="mb-5 grid lg:grid-cols-3">
       <div>
-        <%= simple_format(comment.body) %>
+        <% if comment.user.image.present? %>
+          <div>
+            <%= image_tag comment.user.image, class: "rounded-full shadow mx-auto w-16 h-16" %>
+            <div class="font-bold text-lg md:text-center ">
+              <%= comment.user.name %>
+            </div>
+          </div>
+        <% else %>
+          <div>
+            <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow mx-auto w-16 h-16" %>
+            <div class="font-bold text-lg md:text-center ">
+              <%= comment.user.name %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-span-2">
+        <div class="bg-white rounded-lg p-3  flex flex-col justify-center items-center md:items-start shadow-lg mb-4">
+          <%= simple_format(comment.body) %>
+        </div>
         <% if comment.user == current_user %>
-          <%= link_to "削除", comment_path(comment), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+          <div class="text-right">
+            <%= link_to "削除", comment_path(comment), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+          </div>
         <% end %>
       </div>
     </div>

@@ -1,8 +1,8 @@
 <div class="w-full bg-white rounded-lg shadow-lg p-6 flex flex-col justify-center items-center">
   <div class="text-center">
-    <%= link_to board.user.name, user_path(board.user), class: "font-bold" %>さんの思い出
+    <%= link_to board.user.name, user_path(board.user), class: "font-bold text-2xl" %>さんの想い出
     <%= link_to "/boards/#{board.id}" do  %>
-      <div class="text-xl font-bold mt-2 mb-3">
+      <div class="text-2xl font-bold mt-2 mb-3">
         『<%= board.title %>』
       </div>
 
@@ -11,12 +11,12 @@
       <% else %>
         <%= image_tag '/assets/noimage.png', size: '300x300' %>
       <% end %>
-      
+
       <div class="flex ml-3 justify-center">
         <div class="mt-6 mb-5 w-20">
           <%= image_tag(board.song_image) %>
         </div>
-        <div class="text-gray-400 text-left m-6">
+        <div class="text-left m-6">
           <div class="mt-3">
             <i class="fas fa-music"></i>
             <%= board.song_title %><br>

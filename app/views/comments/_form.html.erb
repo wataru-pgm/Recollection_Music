@@ -2,8 +2,10 @@
 <div class="mt-5 mb-3">
   <div class="col-lg-8 offset-lg-2">
     <%= form_with model: comment, url: [board, comment] do |f| %>
-      <%= f.text_area :body, class: 'form-control mb-3 outline-black', placeholder: 'コメントを入力', size: "30x8" %>
-      <%= f.submit '投稿', class: 'btn btn-primary' %>
+      <%= f.text_area :body, class: 'form-control mb-3 outline-black rounded shadow', placeholder: 'コメントを入力', size: "40x7" %>
+      <div>
+        <%= f.submit '投稿する', class: 'bg-white hover:bg-gray-200 text-gray-800 font-semibold py-1 px-3 border border-gray-400 rounded shadow cursor-pointer' %>
+      </div>
     <% end %>
   </div>
 </div>
