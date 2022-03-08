@@ -4,13 +4,13 @@
     <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
       曲検索フォーム
     </h1>
-    <p class="text-white mx-auto font-normal text-sm my-6 max-w-lg">
+    <p class=" text-white mx-auto text-sm my-6 max-w-lg">
       曲名やアーティスト名を入力して、想い出の曲を選択してください
     </p>
 
     <%= form_with url: search_boards_path, method: :get, local: true do |form| %>
-      <%= form.text_field :search, placeholder: "曲、アーティスト", size: "30" %>
-      <%= form.submit '検索', name: nil %>
+      <%= form.text_field :search, placeholder: "曲、アーティスト", size: "20", class: "w-full h-full text-2xl rounded-lg focus:outline-none focus:ring focus:border-blue-300" %>
+      <%= form.submit '検索', name: nil, class: "text-xl mt-5 bg-white hover:bg-gray-200 text-gray-800 font-semibold py-1 px-3 border border-gray-400 rounded shadow cursor-pointer" %>
     <% end %>
   </div>
 
@@ -18,12 +18,12 @@
     <% if @tracks.present? %>
       <% @tracks.each do |track| %>
         <div class="w-full bg-white rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
-          <div class="text-gray-400">
+          <div class="text-black text-black text-lg">
             <i class="fas fa-music"></i>
             <%= track.name %>
           </div>
 
-          <div class="mb-3 text-gray-400">
+          <div class="mb-3 text-black text-lg">
             <i class="fas fa-user-alt"></i>
             <%= track.artists.map(&:name).join %>
           </div>
@@ -36,9 +36,9 @@
           <div class="mb-5">
             <%= audio_tag("#{track.preview_url}", controls: true, class: "vols") %>
           </div>
-          
+
           <div>
-            <%= link_to "追加", new_board_path(song_title: track.name, artist: track.artists.map(&:name).join, song_image: track_image["url"], song_player: track.preview_url) %>
+            <%= link_to "追加", new_board_path(song_title: track.name, artist: track.artists.map(&:name).join, song_image: track_image["url"], song_player: track.preview_url), class: "mt-5 bg-white hover:bg-gray-200 text-gray-800 font-semibold py-1 px-3 border border-gray-400 rounded shadow cursor-pointer" %>
           </div>
         </div>
       <% end %>
