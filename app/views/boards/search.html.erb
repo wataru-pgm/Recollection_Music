@@ -4,12 +4,12 @@
     <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
       曲検索フォーム
     </h1>
-    <p class=" text-white mx-auto text-sm my-6 max-w-lg">
+    <p class=" text-white mx-auto text-base my-6 max-w-lg">
       曲名やアーティスト名を入力して、想い出の曲を選択してください
     </p>
 
     <%= form_with url: search_boards_path, method: :get, local: true do |form| %>
-      <%= form.text_field :search, placeholder: "曲、アーティスト", size: "20", class: "w-full h-full text-2xl rounded-lg focus:outline-none focus:ring focus:border-blue-300" %>
+      <%= form.text_field :search, placeholder: "曲、アーティスト", size: "20", class: "w-full h-full text-2xl rounded-lg focus:ring focus:border-blue-300 outline-black" %>
       <%= form.submit '検索', name: nil, class: "text-xl mt-5 bg-white hover:bg-gray-200 text-gray-800 font-semibold py-1 px-3 border border-gray-400 rounded shadow cursor-pointer" %>
     <% end %>
   </div>
@@ -17,7 +17,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
     <% if @tracks.present? %>
       <% @tracks.each do |track| %>
-        <div class="w-full bg-white rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+        <div class="w-full bg-white rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center outline-black">
           <div class="text-black text-black text-lg">
             <i class="fas fa-music"></i>
             <%= track.name %>
