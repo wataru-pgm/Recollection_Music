@@ -49,8 +49,12 @@
           </div>
           <div class="flex justify-end items-center gap-2 my-3 text-xl">
             <% if @board.user == current_user %>
-              <%= link_to "編集", edit_board_path %>
-              <%= link_to "削除", board_path, method: :delete %>
+              <%= link_to edit_board_path do %>
+                <i class="fas fa-pen"></i>
+              <% end %>
+              <%= link_to board_path, method: :delete do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
             <% end %>
           </div>
 

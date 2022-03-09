@@ -8,12 +8,13 @@
         <div class="row">
           <% if @users.present? %>
             <% @users.each do |user| %>
-              <div>
-                <%= image_tag user.image, class: "rounded-full shadow mx-auto w-28 h-28" if user.image.present?%>
-              </div>
-              <div>
+              <% if user.image.present? %>
+                <%= image_tag user.image, class: "rounded-full shadow mx-auto w-28 h-28" %>
                 <%= link_to user.name, user_path(user), class: "font-bold"  %>
-              </div>
+              <% else %>
+                <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow mx-auto w-28 h-28" %>
+                <%= link_to user.name, user_path(user), class: "font-bold"  %>
+              <% end %>
             <% end %>
           <% else %>
             <h2><%= 'フォローしている人がいません' %></h2>
