@@ -10,7 +10,7 @@
       <div class="mb-5">
         <%= image_tag @user.image, class: "rounded-full shadow mx-auto w-48 h-48" if @user.image.present? %>
       </div>
-      <div class="text-white">
+      <div class="text-white font-bold text-xl">
         <%= link_to "#{@user.followings.count}フォロー", following_user_path(@user), class: "m-3"  %>
         <%= link_to "#{@user.followers.count}フォロワー", follower_user_path(@user) %>
       </div>

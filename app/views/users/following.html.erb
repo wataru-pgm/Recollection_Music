@@ -4,23 +4,22 @@
       フォロー一覧
     </h1>
   </div>
-      <div class="text-center">
-        <div class="row">
-          <% if @users.present? %>
-            <% @users.each do |user| %>
-              <% if user.image.present? %>
-                <%= image_tag user.image, class: "rounded-full shadow mx-auto w-28 h-28" %>
-                <%= link_to user.name, user_path(user), class: "font-bold"  %>
-              <% else %>
-                <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow mx-auto w-28 h-28" %>
-                <%= link_to user.name, user_path(user), class: "font-bold"  %>
-              <% end %>
-            <% end %>
+  <div class="text-center">
+    <div class="row">
+      <% if @users.present? %>
+        <% @users.each do |user| %>
+          <% if user.image.present? %>
+            <%= image_tag user.image, class: "rounded-full shadow mx-auto w-28 h-28" %>
           <% else %>
-            <h2><%= 'フォローしている人がいません' %></h2>
+            <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow mx-auto w-28 h-28" %>
           <% end %>
-        </div>
-      </div>
+          <div>
+            <%= link_to user.name, user_path(user), class: "font-bold"  %>
+          </div>
+        <% end %>
+      <% else %>
+        <h2><%= 'フォローしている人がいません' %></h2>
+      <% end %>
     </div>
   </div>
-</div>
+</section>
