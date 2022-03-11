@@ -1,6 +1,6 @@
 <div class="w-full bg-white rounded-lg shadow-lg p-6 flex flex-col justify-center items-center outline-black">
   <div class="text-center">
-    <%= link_to board.user.name, user_path(board.user), class: "font-bold text-2xl" %>さんの想い出
+    <%= link_to board.user.name, user_path(board.user), class: "font-bold text-2xl hover:text-gray-400 transition-colors duration-300" %>さんの想い出
     <%= link_to "/boards/#{board.id}" do  %>
       <div class="text-2xl font-bold mt-2 mb-3">
         『<%= board.title %>』

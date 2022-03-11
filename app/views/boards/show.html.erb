@@ -16,7 +16,7 @@
               <% else %>
                 <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow w-20 h-20" %>
               <% end %>
-              <div class="text-3xl font-bold my-auto justify-center">
+              <div class="text-3xl font-bold my-auto justify-center rounded hover:text-gray-400 transition-colors duration-300">
                 <%= link_to @board.user.name, user_path(@board.user) %>
               </div>
             </div>
@@ -27,11 +27,11 @@
           <div class="mb-3 flex justify-center">
             <%= audio_tag("#{@board.song_player}", controls: true, class: "vols") %>
           </div>
-          <p class="text-base justify-center font-bold m-auto">
+          <p class="text-base justify-center font-bold m-auto text-lg font-semibold">
             <i class="fas fa-music"></i>
             <%= @board.song_title %>
           </p>
-          <p class="text-md text-base justify-center font-bold mb-4">
+          <p class="text-md text-base justify-center font-bold mb-4 text-lg font-semibold">
             <i class="fas fa-user-alt"></i>
             <%= @board.artist %>
           </p>
@@ -51,7 +51,7 @@
           <div class="text-3xl font-bold mb-2">
             <%= simple_format(@board.body) %>
           </div>
-          <div class="flex justify-end items-center gap-2 my-3 text-xl">
+          <div class="flex justify-end items-center gap-2 my-3 text-2xl font-semibold">
             <% if @board.user == current_user %>
               <%= link_to edit_board_path do %>
                 <i class="fas fa-pen"></i>
