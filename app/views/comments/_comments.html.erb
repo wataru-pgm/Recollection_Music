@@ -8,15 +8,15 @@
       <div>
         <% if comment.user.image.present? %>
           <div>
-            <%= image_tag comment.user.image, class: "rounded-full shadow mx-auto w-16 h-16" %>
-            <div class="font-bold text-lg md:text-center ">
+            <%= image_tag comment.user.image, class: "rounded-full shadow mx-auto w-16 h-16 mr-2" %>
+            <div class="text-lg md:text-center">
               <%= comment.user.name %>
             </div>
           </div>
         <% else %>
           <div>
             <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow mx-auto w-16 h-16" %>
-            <div class="font-bold text-lg md:text-center ">
+            <div class="font-bold text-lg md:text-center">
               <%= comment.user.name %>
             </div>
           </div>

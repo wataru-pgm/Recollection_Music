@@ -4,7 +4,11 @@
       <%= "#{current_user.name}さんのプロフィール" %>
     </div>
     <div>
-      <%= image_tag @user.image, id: 'image', class: "rounded-full shadow mx-auto w-48 h-48" if @user.image.present? %>
+      <% if @user.image.present? %>
+        <%= image_tag @user.image, id: 'image', class: "rounded-full shadow mx-auto w-48 h-48" %>
+      <% else %>
+        <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow mx-auto w-48 h-48" %>
+      <% end %>
     </div>
     
     <div class="text-center">
