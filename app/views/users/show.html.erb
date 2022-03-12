@@ -9,9 +9,9 @@
     <div class="font-semibold text-center mx-4">
       <div class="mb-5">
         <% if @user.image.present? %>
-          <%= image_tag @user.image, class: "rounded-full shadow mx-auto w-48 h-48" %>
+          <%= image_tag @user.image, class: "rounded-full shadow mx-auto w-48 h-48 outline-black" %>
         <% else %>
-          <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow mx-auto w-48 h-48" %>
+          <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow mx-auto w-48 h-48 outline-black" %>
         <% end %>
       </div>
       <div class="text-white font-bold text-xl">
@@ -36,7 +36,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
     <% @boards.each do |board| %>
       <%= link_to board_path(board) do  %>
-        <div class=" w-full bg-white rounded-lg sahdow-lg p-10 flex flex-col justify-center items-center">
+        <div class="w-full bg-white rounded-lg sahdow-lg p-10 flex flex-col justify-center items-center outline-black">
           <div class="text-3xl font-bold mb-5">
             『<%= board.title %>』
           </div>

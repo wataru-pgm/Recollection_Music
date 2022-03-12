@@ -9,13 +9,11 @@
       <% if @users.present? %>
         <% @users.each do |user| %>
           <% if user.image.present? %>
-            <%= image_tag user.image, class: "rounded-full shadow mx-auto w-28 h-28" %>
+            <%= image_tag user.image, class: "rounded-full shadow mx-auto w-28 h-28 outline-black" %>
           <% else %>
-            <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow mx-auto w-28 h-28" %>
+            <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow w-28 h-28 outline-black" %>
           <% end %>
-          <div>
-            <%= link_to user.name, user_path(user), class: "font-bold"  %>
-          </div>
+          <%= link_to user.name, user_path(user), class: "font-bold mb-5 text-2xl hover:text-gray-300 transition-colors duration-300"  %>
         <% end %>
       <% else %>
         <h2><%= 'フォローしている人がいません' %></h2>
