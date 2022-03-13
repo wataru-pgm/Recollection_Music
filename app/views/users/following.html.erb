@@ -9,7 +9,7 @@
       <% if @users.present? %>
         <% @users.each do |user| %>
           <div class="bg-white rounded-lg m-4">
-            <%= link_to user_path(user) do %>
+            <%= link_to user_path(user), class: "hover:text-gray-400" do %>
               <div class="m-3">
                 <% if user.image.present? %>
                   <%= image_tag user.image, class: "rounded-full shadow mx-auto w-28 h-28 outline-black" %>
