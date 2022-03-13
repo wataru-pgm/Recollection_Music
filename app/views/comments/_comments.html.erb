@@ -28,7 +28,7 @@
         </div>
         <% if comment.user == current_user %>
           <div class="text-right">
-            <%= link_to comment_path(comment), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+            <%= link_to comment_path(comment), method: :delete, class: "hover:text-gray-400", data: {confirm: "本当に削除しますか？"} do %>
               <i class="far fa-trash-alt"></i>
             <% end %>
           </div>
