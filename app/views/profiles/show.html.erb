@@ -1,7 +1,7 @@
 <div class="min-h-screen w-screen flex flex-col justify-center items-center">
   <div class="bg-white shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
     <div class="text-center w-full font-bold text-3xl text-gray-600 p-4">
-      <%= "#{current_user.name}さんのプロフィール" %>
+      <%= current_user.name %>さん
     </div>
     <div>
       <% if @user.image.present? %>
@@ -11,16 +11,16 @@
       <% end %>
     </div>
     
-    <div class="text-center">
+    <div class="text-center text-2xl font-bold">
       <%= current_user.name %>
     </div>
-    <div class="text-center">
+    <div class="text-center text-2xl font-bold">
       <%= current_user.email %>
     </div>
     
-    <div class="text-center">
-      <%= link_to "編集", edit_profiles_path %>
-      <%= link_to "退会", user_path(current_user), method: :delete %>
+    <div class="text-center text-xl m-3">
+      <%= link_to "編集", edit_profiles_path, class: "rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors m-2" %>
+      <%= link_to "退会", user_path(current_user), method: :delete, class: "rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors" %>
     </div>
   </div>
 </div>
