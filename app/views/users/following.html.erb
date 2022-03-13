@@ -1,23 +1,31 @@
-<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
-  <div class="text-center pb-12">
-    <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
-      フォロー一覧
-    </h1>
-  </div>
-  <div class="text-center">
-    <div class="row">
+<div class="w-full min-h-screen bg-gradient-to-r from-purple-400 to-pink-400">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
+    <div class="text-center pb-12">
+      <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
+          フォロ-一覧
+      </h1>
+    </div>
+    <div class="text-center flex">
       <% if @users.present? %>
         <% @users.each do |user| %>
-          <% if user.image.present? %>
-            <%= image_tag user.image, class: "rounded-full shadow mx-auto w-28 h-28 outline-black" %>
-          <% else %>
-            <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow w-28 h-28 outline-black" %>
-          <% end %>
-          <%= link_to user.name, user_path(user), class: "font-bold mb-5 text-2xl hover:text-gray-300 transition-colors duration-300"  %>
+          <div class="bg-white rounded-lg m-4">
+            <%= link_to user_path(user) do %>
+              <div class="m-3">
+                <% if user.image.present? %>
+                  <%= image_tag user.image, class: "rounded-full shadow mx-auto w-28 h-28 outline-black" %>
+                <% else %>
+                  <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow w-28 h-28 outline-black" %>
+                <% end %>
+              </div>
+              <div class= "mb-5 font-bold text-2xl">
+                <%= user.name %>
+              </div>
+            <% end %>
+          </div>
         <% end %>
       <% else %>
         <h2><%= 'フォローしている人がいません' %></h2>
       <% end %>
     </div>
-  </div>
-</section>
+  </section>
+</div>

@@ -40,11 +40,13 @@
           <div class="text-3xl font-bold mb-5">
             『<%= board.title %>』
           </div>
-          <% if board.board_image.present? %>
-            <%= image_tag board.board_image %>
-          <% else %>
-            <%= image_tag '/assets/noimage.png' %>
-          <% end %>
+          <div class="flex justify-center">
+            <% if board.board_image.present? %>
+              <%= image_tag board.board_image %>
+            <% else %>
+              <%= image_tag '/assets/noimage.png' %>
+            <% end %>
+          </div>
           <div class="flex ml-3 justify-center">
             <div class="mt-6 mb-5 w-20">
               <%= image_tag(board.song_image) %>

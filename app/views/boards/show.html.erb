@@ -43,9 +43,9 @@
           </div>
           <div>
             <% if @board.board_image.present? %>
-              <%= image_tag @board.board_image.variant(resize:'512x300').processed, class: "mb-6" %>
+              <%= image_tag @board.board_image.variant(resize:'1024x1024').processed, class: "mb-6" %>
             <% else %>
-              <%= image_tag '/assets/noimage.png', size: '512x300', class: "mb-6" %>
+              <%= image_tag '/assets/noimage.png', size: '1024x1024', class: "mb-6" %>
             <% end %>
           </div>
           <div class="text-3xl font-bold mb-2">
