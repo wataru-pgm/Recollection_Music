@@ -1,4 +1,9 @@
-<div class="w-full bg-white rounded-lg shadow-lg p-6 flex flex-col justify-center items-center outline-black">
+<div class="w-full bg-white rounded-lg shadow-lg p-6 flex-col justify-center items-center outline-black">
+  <div class='text-twitter text-right'>
+    <%= link_to "https://twitter.com/intent/tweet?&text=私の想い出の曲は【#{board.artist}の#{board.song_title}】です♪%0aこの頃によく聴いていました🎧%0a&url=https://recollection-music.herokuapp.com/boards/#{board.user.id}%0a&hashtags=想い出,音楽,共有&lang=ja", title: 'Twitter', target: :_blank, rel: 'noopener noreferrer'  do %>
+      <i class="fab fa-twitter share-button"></i>
+    <% end %>
+  </div>
   <div class="text-center">
     <%= link_to board.user.name, user_path(board.user), class: "font-bold text-2xl hover:text-gray-400 transition-colors duration-300" %>さんの想い出
     <%= link_to "/boards/#{board.id}" do  %>
