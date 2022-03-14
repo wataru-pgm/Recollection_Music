@@ -1,22 +1,30 @@
-<div class="w-full bg-white rounded-lg shadow-lg p-6 flex flex-col justify-center items-center">
-  <div class="text-center">
-    <%= link_to board.user.name, user_path(board.user), class: "font-bold" %>さんの思い出
-    <p class="text-xl font-bold mt-2 mb-3">
-      『<%= link_to board.title, "/boards/#{board.id}" %>』
-    </p>
-
-    <% if board.board_image.present? %>
-      <%= image_tag board.board_image.variant(resize:'300x200').processed %>
-    <% else %>
-      <%= image_tag '/assets/noimage.png', size: '300x300' %>
+<div class="w-full bg-white rounded-lg shadow-lg p-6 flex-col justify-center items-center outline-black">
+    <% if board.user == current_user %>
+      <div class="text-right text-twitter text-2xl">
+        <%= link_to "https://twitter.com/intent/tweet?&text=私の想い出の曲は【#{board.artist}の#{board.song_title}】です♪%0aこの頃によく聴いていました🎧%0a&url=https://recollection-music.herokuapp.com/boards/#{board.user.id}%0a&hashtags=想い出,音楽,共有&lang=ja", title: 'Twitter', target: :_blank, rel: 'noopener noreferrer' do %>
+          <i class="fab fa-twitter share-button"></i>
+        <% end %>
+      </div>
     <% end %>
+  <div class="text-center">
+    <%= link_to board.user.name, user_path(board.user), class: "font-bold text-2xl hover:text-gray-400 transition-colors duration-300" %>さんの想い出
+    <%= link_to board_path(board), class: "rounded hover:text-gray-400 transition-colors m-2" do  %>
+      <div class="text-2xl font-bold mt-2 mb-3">
+        『<%= board.title %>』
+      </div>
+      <div class="flex justify-center">
+        <% if board.board_image.present? %>
+          <%= image_tag board.board_image.variant(resize:'300x200').processed %>
+        <% else %>
+          <%= image_tag '/assets/noimage.png', size: '300x200' %>
+        <% end %>
+      </div>
 
-    <div>
       <div class="flex ml-3 justify-center">
         <div class="mt-6 mb-5 w-20">
           <%= image_tag(board.song_image) %>
         </div>
-        <div class="text-gray-400 text-left m-6">
+        <div class="text-left m-6">
           <div class="mt-3">
             <i class="fas fa-music"></i>
             <%= board.song_title %><br>
@@ -27,6 +35,6 @@
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

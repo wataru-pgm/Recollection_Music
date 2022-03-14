@@ -11,8 +11,12 @@
         <div>
           <div>
             <div class="text-xl justify-center font-bold flex mx-4 mb-3">
-              <%= image_tag @board.user.image, class: "rounded-full shadow w-20 h-20" if @board.user.image.present? %>
-              <div class="my-auto justify-center">
+              <% if @board.user.image.present? %>
+                <%= image_tag @board.user.image, class: "rounded-full shadow w-20 h-20" %>
+              <% else %>
+                <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow w-20 h-20" %>
+              <% end %>
+              <div class="text-3xl font-bold my-auto justify-center rounded hover:text-gray-400 transition-colors duration-300">
                 <%= link_to @board.user.name, user_path(@board.user) %>
               </div>
             </div>
@@ -23,34 +27,41 @@
           <div class="mb-3 flex justify-center">
             <%= audio_tag("#{@board.song_player}", controls: true, class: "vols") %>
           </div>
-          <p class="text-base justify-center text-gray-400 font-semibold m-auto">
+          <p class="text-base justify-center font-bold m-auto text-lg font-semibold">
             <i class="fas fa-music"></i>
             <%= @board.song_title %>
           </p>
-          <p class="text-md text-base justify-center text-gray-400 font-semibold mb-4">
+          <p class="text-md text-base justify-center font-bold mb-4 text-lg font-semibold">
             <i class="fas fa-user-alt"></i>
             <%= @board.artist %>
           </p>
         </div>
 
-        <div class="text-center">
+        <div>
           <div class="text-4xl font-bold mb-5">
             『<%= @board.title %>』
           </div>
           <div>
             <% if @board.board_image.present? %>
-              <%= image_tag @board.board_image.variant(resize:'512x300').processed, class: "mb-6" %>
+              <%= image_tag @board.board_image.variant(resize:'1024x1024').processed, class: "mb-6" %>
             <% else %>
-              <%= image_tag '/assets/noimage.png', size: '512x300', class: "mb-6" %>
+              <%= image_tag '/assets/noimage.png', size: '1024x1024', class: "mb-6" %>
             <% end %>
           </div>
-          <div class="text-2xl font-bold mb-2">
+          <div class="text-3xl font-bold mb-2">
             <%= simple_format(@board.body) %>
           </div>
-          <div class="flex justify-end items-center gap-2 my-3 text-xl">
+          <div class="flex justify-end items-center gap-2 my-3 text-2xl font-semibold">
             <% if @board.user == current_user %>
-              <%= link_to "編集", edit_board_path %>
-              <%= link_to "削除", board_path, method: :delete %>
+              <%= link_to "https://twitter.com/intent/tweet?&text=私の想い出の曲は【#{@board.artist}の#{@board.song_title}】です♪%0aこの頃によく聴いていました🎧%0a&url=https://recollection-music.herokuapp.com/boards/#{@board.user.id}%0a&hashtags=想い出,音楽,共有&lang=ja", title: 'Twitter', target: :_blank, rel: 'noopener noreferrer', class: "hover:text-gray-400"  do %>
+                <i class="fab fa-twitter share-button"></i>
+              <% end %>
+              <%= link_to edit_board_path, class: "hover:text-gray-400" do %>
+                <i class="fas fa-pen"></i>
+              <% end %>
+              <%= link_to board_path, method: :delete, class: "hover:text-gray-400" do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
             <% end %>
           </div>
 

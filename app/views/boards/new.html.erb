@@ -7,12 +7,12 @@
     </div>
 
     <div class="w-full bg-white rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
-      <div class="text-gray-400">
+      <div class="text-black text-xl">
         <i class="fas fa-music"></i>
         <%= @board.song_title %>
       </div>
       
-      <div class="mb-3 text-gray-400">
+      <div class="mb-3 text-black text-xl">
         <i class="fas fa-user-alt"></i>
         <%= @board.artist %>
       </div>
@@ -36,33 +36,33 @@
           <%= f.hidden_field :song_image %>
           <%= f.hidden_field :song_player %>
         </div>
-        <div class="text-xl text-center font-bold mb-5">
-          <div>
+        <div class="text-2xl text-center font-bold mb-5">
+          <div class="mb-1">
             <%= f.label :board_image %>
           </div>
           <div>
-            <%= f.file_field :board_image, id: "image" %>
+            <%= f.file_field :board_image, id: "image", class: "text-xl" %>
           </div>
         </div>
           <div id="new-image"></div>
-        <div class="text-xl text-center font-bold mb-3">
-          <div>
+        <div class="text-2xl text-center font-bold mb-3">
+          <div class="mb-1">
             <%= f.label :title %>
           </div>
           <div>
-            <%= f.text_field :title, placeholder: "タイトルを入力してください", size: "30", class: "form-control text-black" %>
+            <%= f.text_field :title, placeholder: "タイトルを入力してください", size: "20", class: "outline-black w-full h-full text-xl rounded-lg focus:outline-none focus:ring focus:border-blue-300" %>
           </div>
         </div>
-        <div class="text-xl text-center font-bold mb-2">
-          <div>
+        <div class="text-2xl text-center font-bold mb-3">
+          <div class="mb-1">
             <%= f.label :body %>
           </div>
           <div>
-            <%= f.text_area :body, placeholder: "想い出の内容を入力してください", size: "30x10", class:"form-control text-black" %>
+            <%= f.text_area :body, placeholder: "想い出の内容を入力してください", size: "50x10", class:"outline-black w-full h-full text-xl rounded-lg focus:outline-none focus:ring focus:border-blue-300" %>
           </div>
         </div>
         <div class='text-center'>
-          <%= f.submit "投稿する", class: "btn btn-primary" %>
+          <%= f.submit "投稿する", class: "text-xl mt-5 bg-white hover:bg-gray-200 text-gray-800 font-semibold py-1 px-3 border border-gray-400 rounded shadow cursor-pointer" %>
         </div>
       <% end %>
     </div>

@@ -19,14 +19,14 @@
                 <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
                   <i class="fas fa-user text-gray-500"></i>
                 </div>
-          <%= f.text_field :name, class: "py-2 pl-10 border border-gray-200 w-full", placeholder: "Name" %>
+          <%= f.text_field :name, class: "py-2 pl-10 border border-gray-200 w-full", placeholder: "田中 太郎" %>
         </div>
         <div>
           <%= f.label :email, class: "text-gray-700" %>
             <svg xmlns="http://www.w3.org/2000/svg" class="font-medium text-2xl text-gray-600 absolute p-2.5 px-3 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
             </svg>
-          <%= f.email_field :email, class: "py-2 pl-10 border border-gray-200 w-full", placeholder: "Email address" %>
+          <%= f.email_field :email, class: "py-2 pl-10 border border-gray-200 w-full", placeholder: "sample@example.com" %>
         </div>
         <div>
           <%= f.label :password, class: "text-gray-700" %>
@@ -43,7 +43,7 @@
           <%= f.password_field :password_confirmation, class: "py-2 pl-10 border border-gray-200 w-full", placeholder: "Password confirmation" %>
         </div>
         <div class= "flex flex-row justify-center items-center mt-3">
-          <%= f.submit "登録する", class: "border border-gray-200 hover:bg-gray-200 hover:text-white duration-100 ease-in-out text-black p-2 flex flex-row justify-center items-center cursor-pointer" %>
+          <%= f.submit "登録する", class: "bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow cursor-pointer" %>
         </div>
       <% end %>
     </div>

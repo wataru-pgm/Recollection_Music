@@ -2,7 +2,7 @@
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
     <div class="text-center pb-12">
       <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
-        投稿編集ページ
+        想い出編集ページ
       </h1>
     </div>
 
@@ -21,7 +21,7 @@
             <%= f.label :title %>
           </div>
           <div>
-            <%= f.text_field :title, class: "form-control mb-3 outline-black", size: "30x2" %>
+            <%= f.text_field :title, size: "20", class: "outline-black w-full h-full text-xl rounded-lg focus:outline-none focus:ring focus:border-blue-300" %>
           </div>
         </div>
 
@@ -30,12 +30,12 @@
             <%= f.label :body %>
           </div>
           <div>
-            <%= f.text_area :body, class: 'form-control mb-3 outline-black', size: "30x8" %>
+            <%= f.text_area :body, size: "50x10", class:"outline-black w-full h-full text-xl rounded-lg focus:outline-none focus:ring focus:border-blue-300" %>
           </div>
         </div>
         <div class="text-xl text-center font-bold mb-5">
           <div>
-            <%= f.submit "更新する", class: "btn btn-primary" %>
+            <%= f.submit "更新する", class: "text-xl mt-5 bg-white hover:bg-gray-200 text-gray-800 font-semibold py-1 px-3 border border-gray-400 rounded shadow cursor-pointer" %>
           </div>
         </div>
       <% end %>
