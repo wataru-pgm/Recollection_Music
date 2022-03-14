@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'static_pages/privacy'
+  get 'static_pages/terms'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # twitter認証
   post 'oauth/callback',  to: 'oauths#callback'
