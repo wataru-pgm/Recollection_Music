@@ -1,3 +1,8 @@
-<nav class="bg-white justify-between flex-wrap p-3">
-    <p>©︎2021.Nostalgia</p>
+<nav class="bg-white justify-between flex-wrap p-3 text-center">
+  <div>
+    <%= link_to "利用規約", static_pages_terms_path, class: "hover:text-gray-400 transition-colors duration-300 m-2" %>
+    <%= link_to "プライバシーポリシー", static_pages_privacy_path, class: "hover:text-gray-400 transition-colors duration-300 m-2" %>
+    <%= link_to "お問い合わせ", root_path, class: "hover:text-gray-400 transition-colors duration-300" %>
+  </div>
+  <p>©︎2022.Re:Collect</p>
 </nav>
