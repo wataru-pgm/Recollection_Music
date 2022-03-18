@@ -36,7 +36,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
     <% @boards.each do |board| %>
       <%= link_to board_path(board) do  %>
-        <div class="w-full bg-white rounded-lg sahdow-lg p-10 flex flex-col justify-center items-center outline-black">
+        <div class="w-full bg-white rounded-lg sahdow-lg p-10 flex flex-col justify-center items-center outline-black hover:text-gray-400 transition-colors">
           <div class="text-3xl font-bold mb-5">
             『<%= board.title %>』
           </div>
