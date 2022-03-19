@@ -1,7 +1,7 @@
 <div class="min-h-screen w-screen flex flex-col justify-center items-center">
   <div class="bg-white shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
     <div class="text-center w-full font-bold text-3xl text-gray-600 p-4">
-      プロフィール編集ページ
+      プロフィール編集
     </div>
     <%= form_with model: @user, url: profiles_path, local: true do |f| %>
       <% if @user.errors.any? %>
