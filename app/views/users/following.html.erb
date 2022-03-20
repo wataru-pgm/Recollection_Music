@@ -5,27 +5,29 @@
           フォロー一覧
       </h1>
     </div>
-    <div class="text-center flex">
-      <% if @users.present? %>
-        <% @users.each do |user| %>
-          <div class="bg-white rounded-lg m-4">
-            <%= link_to user_path(user), class: "hover:text-gray-400" do %>
-              <div class="m-3">
-                <% if user.image.present? %>
-                  <%= image_tag user.image, class: "rounded-full shadow mx-auto w-24 h-24 outline-black" %>
-                <% else %>
-                  <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow w-24 h-24 outline-black" %>
-                <% end %>
-              </div>
-              <div class= "mb-5 font-bold text-2xl">
-                <%= user.name %>
-              </div>
-            <% end %>
-          </div>
+    <div class="text-center flex justify-center">
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-6">
+        <% if @users.present? %>
+          <% @users.each do |user| %>
+            <div class="bg-white rounded-lg m-3">
+              <%= link_to user_path(user), class: "hover:text-gray-400" do %>
+                <div class="m-3">
+                  <% if user.image.present? %>
+                    <%= image_tag user.image, class: "rounded-full shadow mx-auto w-24 h-24 outline-black" %>
+                  <% else %>
+                    <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow w-24 h-24 outline-black" %>
+                  <% end %>
+                </div>
+                <div class= "mb-5 font-bold text-2xl">
+                  <%= user.name %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <h2><%= 'フォローしている人がいません' %></h2>
         <% end %>
-      <% else %>
-        <h2><%= 'フォローしている人がいません' %></h2>
-      <% end %>
+      </div>
     </div>
   </section>
 </div>
