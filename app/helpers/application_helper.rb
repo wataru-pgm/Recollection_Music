@@ -10,17 +10,17 @@ module ApplicationHelper
       separator: '|',
       icon: [
         { href: image_url('favicon.png') },
-        { href: image_url('favicon.png'), rel: 'apple-touch-icon', sizes: '180x120', type: 'image/jpg' }
+        { href: image_url('favicon.png'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' }
       ],
-      # og: {
-      #   site_name: 'Re:Collect',
-      #   title: 'Re:Collect',
-      #   description: :description,
-      #   type: 'website',
-      #   url: request.original_url,
-      #   image: image_url('ogp.png'),
-      #   locale: 'ja_JP'
-      # },
+      og: {
+        site_name: 'Re:Collect',
+        title: 'Re:Collect',
+        description: :description,
+        type: 'website',
+        url: request.original_url,
+        image: image_url('ogp.png'),
+        locale: 'ja_JP'
+      },
       twitter: {
         card: 'summary_large_image',
         site: '@wataru_pgm'
