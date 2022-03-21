@@ -1,5 +1,5 @@
 <div class="min-h-screen w-screen flex flex-col justify-center items-center">
-  <div class="bg-white shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
+  <div class="rounded-lg outline-black bg-white shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
     <div class="text-center w-full font-bold text-3xl text-gray-600 p-4">
       ログイン
     </div>
@@ -33,7 +33,8 @@
       </div>
 
       <div class="w-full flex flex-col gap-2">
-        <button class="twitter-login bg-blue-600 text-white w-full p-2 flex flex-row justify-center gap-2 items-center hover:bg-blue-700 duration-100 ease-in-out">
+        <button class="twitter-login rounded-lg bg-blue-600 text-white w-full p-2 flex flex-row justify-center gap-2 items-center hover:bg-blue-700 duration-100 ease-in-out">
+          <i class="fab fa-twitter share-button"></i>
           <%= link_to 'Twitterでログイン', auth_at_provider_path(provider: :twitter) %>
         </button>
 
