@@ -22,6 +22,17 @@
                   <%= user.name %>
                 </div>
               <% end %>
+              <div class="flex justify-center gap-2 my-5">
+                <% if logged_in? && current_user != user %>
+                  <section id="follow-button-<%= user.id %>">
+                    <% if current_user.following?(user) %>
+                      <%= render 'relationships/unfollow_button', user: user %>
+                    <% else %>
+                      <%= render 'relationships/follow_button', user: user %>
+                    <% end %>
+                  </section>
+                <% end %>
+              </div>
             </div>
           <% end %>
         <% else %>
