@@ -15,8 +15,14 @@
         <% end %>
       </div>
       <div class="text-white font-bold text-xl">
-        <%= link_to "#{@user.followings.count}フォロー", following_user_path(@user), class: "m-3 hover:text-gray-300 transition-colors duration-300"  %>
-        <%= link_to "#{@user.followers.count}フォロワー", follower_user_path(@user), class: "hover:text-gray-300 transition-colors duration-300" %>
+        <div>
+          <%= render 'relationships/following_count', user: @user %>
+          <p class="follow-count">フォロー</p>
+        </div>
+        <div>
+          <%= render 'relationships/follower_count', user: @user %>
+          <p class="follow-count">フォロワー</p>
+        </div>
       </div>
     </div>
   </div>
