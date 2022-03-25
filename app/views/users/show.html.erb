@@ -14,14 +14,18 @@
           <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow mx-auto w-48 h-48 outline-black" %>
         <% end %>
       </div>
-      <div class="text-white font-bold text-xl">
-        <div>
-          <%= render 'relationships/following_count', user: @user %>
-          <p class="follow-count">フォロー</p>
+      <div class="flex text-white font-bold text-xl">
+        <div class="flex mr-2">
+          <div>
+            <%= render 'relationships/following_count', user: @user %>
+          </div>
+          <p class="follow-count"></p>
         </div>
-        <div>
-          <%= render 'relationships/follower_count', user: @user %>
-          <p class="follow-count">フォロワー</p>
+        <div class="flex ml-2">
+          <div>
+            <%= render 'relationships/follower_count', user: @user %>
+          </div>
+          <p class="follow-count"></p>
         </div>
       </div>
     </div>

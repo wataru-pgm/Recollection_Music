@@ -1,1 +1,1 @@
-<%= link_to user.followings.count, following_user_path(user), class: "m-3 hover:text-gray-300 transition-colors duration-300"  %>
+<%= link_to "#{user.followings.count} フォロー", following_user_path(user), class: "m-2 hover:text-gray-300 transition-colors duration-300" %>
