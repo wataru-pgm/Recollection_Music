@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include Pagy::Frontend
   def default_meta_tags
     {
       title: 'Re:Collect',
