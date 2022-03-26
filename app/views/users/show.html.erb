@@ -14,9 +14,19 @@
           <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow mx-auto w-48 h-48 outline-black" %>
         <% end %>
       </div>
-      <div class="text-white font-bold text-xl">
-        <%= link_to "#{@user.followings.count}フォロー", following_user_path(@user), class: "m-3 hover:text-gray-300 transition-colors duration-300"  %>
-        <%= link_to "#{@user.followers.count}フォロワー", follower_user_path(@user), class: "hover:text-gray-300 transition-colors duration-300" %>
+      <div class="flex text-white font-bold text-xl">
+        <div class="flex mr-2">
+          <div>
+            <%= render 'relationships/following_count', user: @user %>
+          </div>
+          <p class="follow-count"></p>
+        </div>
+        <div class="flex ml-2">
+          <div>
+            <%= render 'relationships/follower_count', user: @user %>
+          </div>
+          <p class="follow-count"></p>
+        </div>
       </div>
     </div>
   </div>

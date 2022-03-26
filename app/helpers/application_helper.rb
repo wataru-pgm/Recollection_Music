@@ -4,7 +4,7 @@ module ApplicationHelper
       title: 'Re:Collect',
       reverse: true,
       charset: 'utf-8',
-      description: '音楽と思い出を共有するSNSアプリ',
+      description: '『音楽』と『想い出』を共有するSNS',
       keywords: '音楽, 想い出, 共有, Re:Collect, リコレクト',
       canonical: request.original_url,
       separator: '|',

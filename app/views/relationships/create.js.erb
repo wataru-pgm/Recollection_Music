@@ -1,1 +1,2 @@
-$("#follow-button-<%= @other_user.id %>").html("<%= j(render 'unfollow_button', user: @other_user) %>")
+$("#follow-button-<%= @other_user.id %>").html("<%= j(render 'unfollow_button', user: @other_user) %>");
+$("#followers").html("<%= @other_user.followers.count %> フォロワー");

@@ -1,8 +1,10 @@
-<div class="min-h-screen w-screen flex flex-col justify-center items-center">
-  <div class="bg-white shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8">
-    <div class="text-center w-full font-bold text-3xl text-gray-600 p-4">
+<div class="min-h-screen w-screen flex flex-col items-center">
+  <div class="text-center pb-12">
+    <h1 class="font-bold mt-8 text-3xl md:text-4xl lg:text-5xl font-heading text-white">
       プロフィール編集
-    </div>
+    </h1>
+  </div>
+  <div class="bg-white shadow-none sm:shadow-lg px-8 sm:px-12 w-full xs:w-full sm:w-8/12 md:w-7/12 lg:w-7/12 xl:w-2/6 h-screen sm:h-auto py-8 rounded-lg outline-black">
     <%= form_with model: @user, url: profiles_path, local: true do |f| %>
       <% if @user.errors.any? %>
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
@@ -32,7 +34,7 @@
         <%= f.text_field :email, class: "py-2 pl-10 border border-gray-200 w-full" %>
       </div>
       <div class= "flex flex-row justify-center items-center mt-3">
-        <%= f.submit "更新する", class: "border border-gray-200 hover:bg-gray-200 hover:text-white duration-100 ease-in-out text-black p-2 flex flex-row justify-center items-center cursor-pointer"%>
+        <%= f.submit "更新する", class: "bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow cursor-pointer"%>
       </div>
     <% end %>
   </div>
