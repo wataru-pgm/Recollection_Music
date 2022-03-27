@@ -16,7 +16,7 @@
               <% else %>
                 <%= image_tag '/assets/sample_profile.png', class: "rounded-full shadow w-20 h-20" %>
               <% end %>
-              <div class="text-3xl font-bold my-auto justify-center rounded hover:text-gray-400 transition-colors duration-300">
+              <div class="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl font-bold my-auto justify-center rounded hover:text-gray-400 transition-colors duration-300">
                 <%= link_to @board.user.name, user_path(@board.user) %>
               </div>
             </div>
