@@ -1,13 +1,13 @@
 <div class="w-full bg-white rounded-lg shadow-lg p-6 flex-col justify-center items-center outline-black">
     <% if board.user == current_user %>
       <div class="text-right text-twitter text-2xl">
-        <%= link_to "https://twitter.com/intent/tweet?&text=私の想い出の曲は【#{board.artist}の#{board.song_title}】です♪%0aこの頃によく聴いていました🎧%0a&url=https://www.re-collect.jp/boards/#{board.user.id}%0a&hashtags=想い出,音楽,共有,リコレクト&lang=ja", title: 'Twitter', target: :_blank, rel: 'noopener noreferrer' do %>
+        <%= link_to "https://twitter.com/intent/tweet?&text=私の想い出の曲は【#{board.artist}の#{board.song_title}】です♪%0aこの頃によく聴いていました🎧%0a&url=https://www.re-collect.jp/boards/#{board.id}%0a&hashtags=想い出,音楽,共有,リコレクト&lang=ja", title: 'Twitter', target: :_blank, rel: 'noopener noreferrer' do %>
           <i class="fab fa-twitter share-button"></i>
         <% end %>
       </div>
     <% else %>
       <div class="text-right text-pink-500 text-2xl">
-        <%= link_to "https://twitter.com/intent/tweet?&text=私も【#{board.artist}の#{board.song_title}】が好きです♪%0a&url=https://www.re-collect.jp/boards/#{board.user.id}%0a&hashtags=想い出,音楽,共有,リコレクト&lang=ja", title: 'Twitter', target: :_blank, rel: 'noopener noreferrer' do %>
+        <%= link_to "https://twitter.com/intent/tweet?&text=私も【#{board.artist}の#{board.song_title}】が好きです♪%0a&url=https://www.re-collect.jp/boards/#{board.id}%0a&hashtags=想い出,音楽,共有,リコレクト&lang=ja", title: 'Twitter', target: :_blank, rel: 'noopener noreferrer' do %>
           <i class="fab fa-twitter share-button"></i>
         <% end %>
       </div>
