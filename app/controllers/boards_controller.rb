@@ -8,7 +8,7 @@ class BoardsController < ApplicationController
   def top; end
 
   def index
-    @boards = Board.all.order(created_at: :desc)
+    @pagy, @boards = pagy(Board.all.order(created_at: :desc), items: 12)
   end
 
   def search
