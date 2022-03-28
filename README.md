@@ -1,24 +1,55 @@
-# README
+<div align="center">
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**「音楽」と「想い出」を共有するSNSアプリ**
 
-Things you may want to cover:
+<br>
 
-* Ruby version
+## Re:Collectを作成した背景
+コロナ禍によって、たくさんのアーティストの方々がライブのやりにくい世の中になってしまいました。<br>
+自身が体験した「想い出」と、そんな時によく聴いていた「音楽」をシェアすることで、<br>
+人の体験談や好きな音楽に共感し、人と仲良くなって盛り上がれるツールを作成したいと思い、Re:Collectをリリースしました。<br>
+また、アーティストの方々がコロナを気にすることなく、<br>
+気持ちよくライブができる世の中になって欲しいという願いも込めて製作しました。<br>
+  
+<br>
 
-* System dependencies
+## Re:Collectを進めたいユーザー
+好きな音楽をきっかけに友達を作りたい方
 
-* Configuration
+<br>
 
-* Database creation
+## Re:Collectで解決できること
+過去の体験談や同じ好きな音楽に共感し、仲良くなるきっかけを作ることができます。
 
-* Database initialization
+<br>
 
-* How to run the test suite
+## 主なページ内容
+</div>
 
-* Services (job queues, cache servers, search engines, etc.)
+<br>
 
-* Deployment instructions
+***
 
-* ...
+<br>
+
+### ER図
+
+<br>
+
+### 使用技術
+
+#### バックエンド
+Ruby 2.7.2  
+Rails 6.1.4  
+Rubocop  
+
+
+#### フロントエンド
+HTML  
+CSS(SCSS)  
+Tailwind CSS  
+JavaScript(jQuery)  
+
+
+#### API
+Spotify API
