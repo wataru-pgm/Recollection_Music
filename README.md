@@ -25,6 +25,10 @@ Re:Collectをリリースしました。<br>
 
 <br>
 
+***
+
+<br>
+
 ### ER図
 <img width="555" alt="er_re-collect" src="https://user-images.githubusercontent.com/71957661/160625083-c559626c-adfb-4f81-812a-49928c280b22.png">
 
