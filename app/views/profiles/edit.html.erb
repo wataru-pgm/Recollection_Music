@@ -35,14 +35,7 @@
       </div>
       <div class="mt-6 item-center">
         <%= f.label :birthday, class: "text-gray-700" %>
-        <%= raw sprintf(
-            f.date_select(
-              :birthday,
-              prompt:"--",
-              start_year: 1960,
-              end_year: (Time.now.year),
-              date_separator: '%s'),
-            '年 ', '月 ') + '日' %>
+        <%= raw sprintf( f.date_select( :birthday, prompt:"--", start_year: 1960, end_year: (Time.now.year), date_separator: '%s'), '年 ', '月 ') + '日' %>
       </div>
       </div>
       <div class= "flex flex-row justify-center items-center mt-3">
