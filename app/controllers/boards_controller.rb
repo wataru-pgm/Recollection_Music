@@ -54,7 +54,7 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:board_image, :title, :body, :song_title, :artist, :song_image, :song_player)
+    params.require(:board).permit(:board_image, :title, :body, :how_old, :song_title, :artist, :song_image, :song_player)
   end
 
   def track_params
