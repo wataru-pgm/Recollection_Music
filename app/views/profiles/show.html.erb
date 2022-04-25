@@ -20,7 +20,8 @@
       <%= current_user.email %>
     </div>
     <div class="text-center text-2xl font-bold mb-5">
-      <%= (Date.today.strftime("%Y%m%d").to_i - current_user.birthday.strftime("%Y%m%d").to_i) / 10000 %>歳
+      <%= current_user.birthday.strftime("%Y年%-m月%-d日") %>
+      ( <%= (Date.today.strftime("%Y%m%d").to_i - current_user.birthday.strftime("%Y%m%d").to_i) / 10000 %>歳 )
     </div>
     
     <div class="text-center text-xl m-3">
