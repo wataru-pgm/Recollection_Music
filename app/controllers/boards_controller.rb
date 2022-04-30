@@ -2,8 +2,8 @@ class BoardsController < ApplicationController
   skip_before_action :require_login, only: [:top, :index, :show]
   before_action :ensure_board, only: [:edit, :update, :destroy]
   require 'rspotify'
-  RSpotify.authenticate(Rails.application.credentials.spotify[:client_id],
-                        Rails.application.credentials.spotify[:client_secret])
+  RSpotify.authenticate(Rails.application.credentials.dig(:spotify, :client_id),
+                        Rails.application.credentials.dig(:spotify, :client_secret))
 
   def top; end
 
@@ -15,6 +15,12 @@ class BoardsController < ApplicationController
     @tracks = RSpotify::Track.search(params[:search]).first(9) if params[:search].present?
   end
 
+  def recommend
+    board = Board.last(params[:id])
+    year = current_user.birthday.strftime("%Y").to_i + board.how_old
+
+  end
+
   def new
     @board = current_user.boards.new(track_params)
   end
@@ -22,7 +28,7 @@ class BoardsController < ApplicationController
   def create
     @board = current_user.boards.new(board_params)
     if @board.save
-      redirect_to boards_path, success: t('.success')
+      redirect_to recommend_boards_path, success: t('.success')
     else
       flash.now[:danger] = t('.fail')
       render :new
@@ -64,4 +70,5 @@ class BoardsController < ApplicationController
   def ensure_board
     @board = current_user.boards.find(params[:id])
   end
+
 end
