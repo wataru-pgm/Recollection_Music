@@ -17,8 +17,8 @@ class BoardsController < ApplicationController
 
   def recommend
     board = Board.last(params[:id])
-    year = current_user.birthday.strftime("%Y").to_i + board.how_old
-    @recommend_tracks = RSpotify::Track.search(year.to_s + "年").first(3)
+    age = current_user.birthday.strftime("%Y").to_i + board.how_old
+    @recommend_tracks = RSpotify::Track.search(age.to_s).first(3)
   end
 
   def new
