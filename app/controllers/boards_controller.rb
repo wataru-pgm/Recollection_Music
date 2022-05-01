@@ -64,7 +64,8 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:board_image, :title, :body, :how_old, :song_title, :artist, :song_image, :song_player)
+    params.require(:board).permit(:board_image, :title, :body, :how_old, :song_title, :artist, :song_image,
+                                  :song_player)
   end
 
   def track_params
@@ -74,5 +75,4 @@ class BoardsController < ApplicationController
   def ensure_board
     @board = current_user.boards.find(params[:id])
   end
-
 end
