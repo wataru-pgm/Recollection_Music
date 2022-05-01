@@ -18,7 +18,7 @@ class BoardsController < ApplicationController
   def recommend
     board = Board.last(params[:id])
     year = current_user.birthday.strftime("%Y").to_i + board.how_old
-
+    @recommend_tracks = RSpotify::Track.search(year.to_s + "年").first(3)
   end
 
   def new
@@ -28,7 +28,11 @@ class BoardsController < ApplicationController
   def create
     @board = current_user.boards.new(board_params)
     if @board.save
-      redirect_to recommend_boards_path, success: t('.success')
+      if current_user.birthday.present?
+        redirect_to recommend_boards_path, success: t('.success')
+      else
+        redirect_to boards_path, success: t('.success')
+      end
     else
       flash.now[:danger] = t('.fail')
       render :new
