@@ -3,7 +3,6 @@
     <div class="text-center pb-12">
       <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
           当時流行った楽曲
-          
       </h1>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
@@ -28,6 +27,7 @@
             <div class="mb-5">
               <%= audio_tag("#{track.preview_url}", controls: true, class: "vols") %>
             </div>
+              <%= track.album.release_date %>
 
             <div>
               <%= link_to "追加", new_board_path(song_title: track.name, artist: track.artists.map(&:name).join, song_image: track_image["url"], song_player: track.preview_url), class: "mt-5 bg-white hover:bg-gray-200 text-gray-800 font-semibold py-1 px-3 border border-gray-400 rounded shadow cursor-pointer" %>
