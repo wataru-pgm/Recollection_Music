@@ -3,7 +3,7 @@
     <div class="text-center pb-12">
       <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
           <%= current_user.name %>さんが
-          <%= (Date.today.strftime("%Y%m%d").to_i - current_user.birthday.strftime("%Y%m%d").to_i) / 10000 %>歳の時に
+          <%= @board.how_old %>歳の時に<br>
             リリースされた楽曲
       </h1>
     </div>
