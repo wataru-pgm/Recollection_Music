@@ -18,21 +18,21 @@ class BoardsController < ApplicationController
   def recommend
     @board = Board.last(params[:id])
     age = current_user.birthday.strftime("%Y").to_i + @board.how_old
-    @recommend_tracks = RSpotify::Track.search("genre:" + "j-pop" + " " +
-                                                "year:" + age.to_s + " " +
-                                                "label:" + "sony").first(6)
+    @recommend_tracks = RSpotify::Track.search("genre:j-pop" + " " + "year:#{age}" + " " + "label:sony").first(6)
   end
 
   def new
     @board = current_user.boards.new(track_params)
+    session[:recommend] = params[:recommend]
   end
 
   def create
     @board = current_user.boards.new(board_params)
     if @board.save
-      if current_user.birthday.present?
+      if current_user.birthday.present? && session[:recommend].nil?
         redirect_to recommend_boards_path, success: t('.success')
-      else
+      elsif current_user.birthday.nil? || session[:recommend].present?
+        session[:recommend].clear
         redirect_to boards_path, success: t('.success')
       end
     else
