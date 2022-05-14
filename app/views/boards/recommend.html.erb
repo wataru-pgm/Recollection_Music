@@ -1,0 +1,41 @@
+<div class="w-full min-h-screen bg-gradient-to-r from-purple-400 to-pink-400">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
+    <div class="text-center pb-12">
+      <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
+          <%= current_user.name %>さんが
+          <%= @board.how_old %>歳の時に<br>
+            リリースされた楽曲
+      </h1>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+      <% if @recommend_tracks.present? %>
+        <% @recommend_tracks.each do |track| %>
+          <div class="w-full bg-white rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center outline-black">
+            <div class="text-black text-black text-lg">
+              <i class="fas fa-music"></i>
+              <%= track.name %>
+            </div>
+
+            <div class="mb-3 text-black text-lg">
+              <i class="fas fa-user-alt"></i>
+              <%= track.artists.map(&:name).join %>
+            </div>
+
+            <div class="mb-5">
+              <% track_image = track.album.images[1] %>
+              <%= image_tag(track_image["url"]) %>
+            </div>
+
+            <div class="mb-5">
+              <%= audio_tag("#{track.preview_url}", controls: true, class: "vols") %>
+            </div>
+
+            <div>
+              <%= link_to "追加", new_board_path(song_title: track.name, artist: track.artists.map(&:name).join, song_image: track_image["url"], song_player: track.preview_url, recommend: true), class: "mt-5 bg-white hover:bg-gray-200 text-gray-800 font-semibold py-1 px-3 border border-gray-400 rounded shadow cursor-pointer" %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+</div>

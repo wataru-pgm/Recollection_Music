@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resource :profiles, only: [:show, :edit, :update]
 
   resources :boards do
-    collection { get "search" }
+    collection { get "search", "recommend" }
     resources :comments, only: [:create, :destroy], shallow: true
     resource :likes, only: [:create, :destroy]
   end

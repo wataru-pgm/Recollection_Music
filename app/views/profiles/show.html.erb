@@ -19,6 +19,12 @@
     <div class="text-center text-2xl font-bold mb-5">
       <%= current_user.email %>
     </div>
+    <div class="text-center text-2xl font-bold mb-5">
+      <% if current_user.birthday.present? %>
+        <%= current_user.birthday.strftime("%Y年%-m月%-d日") %>
+        ( <%= (Date.today.strftime("%Y%m%d").to_i - current_user.birthday.strftime("%Y%m%d").to_i) / 10000 %>歳 )
+      <% end %>
+    </div>
     
     <div class="text-center text-xl m-3">
       <%= link_to "編集", edit_profiles_path, class: "rounded hover:bg-gray-100 hover:text-yellow-700 transition-colors m-2 outline-black p-1" %>

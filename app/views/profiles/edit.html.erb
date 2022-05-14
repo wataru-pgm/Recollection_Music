@@ -33,6 +33,11 @@
           </svg>
         <%= f.text_field :email, class: "py-2 pl-10 border border-gray-200 w-full" %>
       </div>
+      <div class="mt-6 item-center">
+        <%= f.label :birthday, class: "text-gray-700" %>
+        <%= raw sprintf( f.date_select( :birthday, use_month_numbers: true, prompt:"--", start_year: 1960, end_year: (Time.now.year), date_separator: '%s'), '年 ', '月') + '日' %>
+      </div>
+      </div>
       <div class= "flex flex-row justify-center items-center mt-3">
         <%= f.submit "更新する", class: "bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow cursor-pointer"%>
       </div>

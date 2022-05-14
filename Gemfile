@@ -20,6 +20,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 gem 'sorcery'
 gem 'pry-byebug'
+gem 'pry-rails'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'rspotify'

@@ -44,7 +44,15 @@
             <%= f.file_field :board_image, id: "image", class: "text-xl" %>
           </div>
         </div>
-          <div id="new-image"></div>
+        <div id="new-image"></div>
+        <div class="text-2xl text-center font-bold mb-3">
+          <div class="mb-1">
+            <%= f.label :how_old %>
+          </div>
+          <div>
+            <%= f.number_field :how_old, min: "0", max: "65", class: "outline-black text-xl rounded-lg focus:outline-none focus:ring focus:border-blue-300 mr-3" %>歳
+          </div>
+        </div>
         <div class="text-2xl text-center font-bold mb-3">
           <div class="mb-1">
             <%= f.label :title %>

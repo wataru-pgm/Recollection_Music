@@ -10,7 +10,9 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
         image: 画像
+        birthday: 誕生日
       board:
         title: タイトル
         body: 内容
         board_image: 想い出の画像
+        how_old: 当時の年齢
