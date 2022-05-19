@@ -18,6 +18,4 @@ RSpec.describe Board, type: :model do
     board.valid?
     expect(board.errors[:how_old]).to include("は数値で入力してください")
   end
-
-  it ''
 end
