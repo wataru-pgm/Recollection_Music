@@ -8,6 +8,12 @@ RSpec.describe User, type: :model do
       expect(user.errors[:name]).to include("を入力してください")
     end
 
+    it '違う名前は有効' do
+      create(:user, name: 'name')
+      user = build(:user, name: 'name1')
+      expect(user).to be_valid
+    end
+
     it 'メールアドレスが入力されていないとき' do
       user = build(:user, email: "")
       user.valid?
@@ -30,7 +36,7 @@ RSpec.describe User, type: :model do
       create(:user, email: "test@example.com")
       user = build(:user, email: "test@example.com")
       user.valid?
-      expect(user2.errors[:email]).to include("はすでに存在します")
+      expect(user.errors[:email]).to include("はすでに存在します")
     end
   end
 end
