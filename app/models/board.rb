@@ -8,5 +8,5 @@ class Board < ApplicationRecord
 
   validates :title, presence: true, length: { minimum: 3, maximum: 20 }
   validates :body,  presence: true, length: { minimum: 5, maximum: 200 }
-  validates :how_old, numericality: { in: 0..65 }
+  validates :how_old, presence: true, numericality: { in: 0..65 }
 end
