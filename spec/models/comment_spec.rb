@@ -8,7 +8,8 @@ RSpec.describe Comment, type: :model do
   end
 
   it 'コメントが101文字以上のときNG' do
-    comment = build(:comment, body: "テストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテ")
+    comment = build(:comment,
+                    body: "テストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテストほげテ")
     comment.valid?
     expect(comment.errors[:body]).to include("は100文字以内で入力してください")
   end

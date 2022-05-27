@@ -8,7 +8,7 @@ class BoardsController < ApplicationController
   def top; end
 
   def index
-    @pagy, @boards = pagy(Board.all.order(created_at: :desc), items: 12)
+    @pagy, @boards = pagy(Board.includes(:user).with_attached_board_image.order(created_at: :desc), items: 12)
   end
 
   def search
